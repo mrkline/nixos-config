@@ -12,8 +12,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Use the latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_5_9;
+
   networking.hostName = "kline-nixos-desktop"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
@@ -21,8 +23,11 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.wlo1.useDHCP = true;
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #networking.useDHCP = false;
+  #networking.interfaces.eth0.useDHCP = true;
+  #networking.interfaces.wlo1.useDHCP = true;
+  networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -46,7 +51,7 @@
 
 
   services.xserver.enable = true;
-  services.xserver.autorun = false;
+  services.xserver.autorun = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.windowManager.i3.enable = true;
   # Configure keymap in X11
@@ -61,7 +66,7 @@
     isNormalUser = true;
     home = "/home/mkline";
     description = "Matt Kline";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
@@ -71,10 +76,13 @@
      # disk stuff
      compsize
      btrfs-progs
+     parted
      snapper
 
      # utils
      curl
+     exa
+     tree
      wget
      htop
 
@@ -88,12 +96,31 @@
      # devel
      git
      neovim
+     ripgrep
 
-     # ui
+     # ...apps?
+     firefox
+     ffmpeg
+     slack
+
+     # ui/desktop environment
      alacritty
+     conky
+     i3
+     i3lock
+     networkmanagerapplet
+     pango
+     picom
      rofi
+     scrot
+     pavucontrol
+     xfce.ristretto
+     xfce.thunar
+     xfce.xfce4-clipman-plugin
+     xfce.xfce4-screenshooter
 
      # Fonts
+     dejavu_fonts
      jost
      mononoki
      source-code-pro
@@ -111,16 +138,46 @@
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
 
-  # List services that you want to enable:
+  services.snapper.configs = {
+    home = {
+      fstype = "btrfs";
+      subvolume = "/home";
+      extraConfig = ''
+	ALLOW_USERS="mkline"
+	TIMELINE_CREATE="yes"
+	TIMELINE_CLEANUP="yes"
+	TIMELINE_MIN_AGE="1800"
+	TIMELINE_LIMIT_HOURLY="8"
+	TIMELINE_LIMIT_DAILY="10"
+	TIMELIME_LIMIT_WEEKLY="2"
+	TIMELINE_LIMIT_MONTHLY="4"
+	TIMELIME_LIMIT_YEARLY="1"
+      '';
+    };
+  };
+  services.snapper.snapshotInterval = "hourly";
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.picom.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  fonts.fonts = with pkgs; [
+    dejavu_fonts
+    jost
+    mononoki
+    source-code-pro
+    source-sans-pro
+    source-serif-pro
+  ];
+  fonts.fontconfig.enable = true;
+  fonts.fontconfig.antialias = true;
+  fonts.fontconfig.hinting.enable = true;
+  fonts.fontconfig.defaultFonts.monospace = [ "mononoki" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -131,4 +188,3 @@
   system.stateVersion = "20.09"; # Did you read the comment?
 
 }
-
