@@ -12,8 +12,17 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Use the latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_5_9;
+  boot.kernelPackages = pkgs.linuxPackages_5_9; # Use the latest kernel
+  boot.devShmSize = "10%";
+  boot.tmpOnTmpfs = true; # tmpfs on /tmp please
+
+  # Use BBR congestion control
+  # https://en.wikipedia.org/wiki/TCP_congestion_control#TCP_BBR
+  boot.kernelModules = [ "tcp_bbr" ];
+  boot.kernel.sysctl = {
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+  };
 
   networking.hostName = "kline-nixos-desktop"; # Define your hostname.
 
@@ -49,7 +58,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-
   services.xserver.enable = true;
   services.xserver.autorun = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -57,7 +65,7 @@
   # Configure keymap in X11
   services.xserver.layout = "us";
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  #services.xserver.libinput.enable = true;
   # Enable 32-bit OGL stuff
   # hardware.opengl.driSupport32Bit = true;
 
@@ -82,6 +90,8 @@
      # utils
      curl
      exa
+     file
+     killall
      tree
      wget
      htop
@@ -89,7 +99,9 @@
      # compression
      zsh
      zip
+     unzip
      gzip
+     libarchive
      xz
      zstd
 
@@ -101,6 +113,7 @@
      # ...apps?
      firefox
      ffmpeg
+     gnome3.file-roller
      slack
 
      # ui/desktop environment
@@ -114,6 +127,7 @@
      rofi
      scrot
      pavucontrol
+     xclip
      xfce.ristretto
      xfce.thunar
      xfce.xfce4-clipman-plugin
@@ -138,6 +152,7 @@
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
 
+  # Snapper: Snapshot /home hourly
   services.snapper.configs = {
     home = {
       fstype = "btrfs";
@@ -157,8 +172,8 @@
   };
   services.snapper.snapshotInterval = "hourly";
 
-  services.picom.enable = true;
-  services.openssh.enable = true;
+  services.picom.enable = true; # Use picom (compton fork) as the compositor
+  services.openssh.enable = true; # Run OpenSSH
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

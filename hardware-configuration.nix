@@ -5,16 +5,19 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Use GRUB as the bootloader
   boot.loader.grub.enable = true;
+  # It's a GPT/EFI system (not MBR)
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.devices = [ "nodev" ];
-  boot.loader.grub.gfxmodeEfi = "1366x768";
   boot.loader.efi.canTouchEfiVariables = true;
+  # Grub is pokey at large resolutions. Use a smaller one.
+  boot.loader.grub.gfxmodeEfi = "1366x768";
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "bfq" ];
+  # The terminals are flaky with modesetting and the current hardware setup.
   boot.kernelParams = [ "nomodeset" ];
   boot.extraModulePackages = [ ];
 
@@ -33,5 +36,11 @@
 
   swapDevices = [ ];
 
-  # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  # BFQ (for everything but our NVME drive), baby.
+  services.udev.extraRules = ''
+      ACTION=="add|change", KERNEL=="nvme[0-9]n[1-9]", ATTR{queue/scheduler}="mq-deadline"
+      ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
+  '';
+
+  # powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }
