@@ -16,7 +16,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "bfq" ];
+  boot.kernelModules = [ "kvm-intel" ];
   # The terminals are flaky with modesetting and the current hardware setup.
   boot.kernelParams = [ "nomodeset" ];
   boot.extraModulePackages = [ ];
@@ -35,12 +35,6 @@
     };
 
   swapDevices = [ ];
-
-  # BFQ (for everything but our NVME drive), baby.
-  services.udev.extraRules = ''
-      ACTION=="add|change", KERNEL=="nvme[0-9]n[1-9]", ATTR{queue/scheduler}="mq-deadline"
-      ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
-  '';
 
   # powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }

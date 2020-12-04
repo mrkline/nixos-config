@@ -6,8 +6,11 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./bbr.nix
+      ./bfq.nix
+      ./fonts.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -15,14 +18,6 @@
   boot.kernelPackages = pkgs.linuxPackages_5_9; # Use the latest kernel
   boot.devShmSize = "10%";
   boot.tmpOnTmpfs = true; # tmpfs on /tmp please
-
-  # Use BBR congestion control
-  # https://en.wikipedia.org/wiki/TCP_congestion_control#TCP_BBR
-  boot.kernelModules = [ "tcp_bbr" ];
-  boot.kernel.sysctl = {
-      "net.core.default_qdisc" = "fq";
-      "net.ipv4.tcp_congestion_control" = "bbr";
-  };
 
   networking.hostName = "kline-nixos-desktop"; # Define your hostname.
 
@@ -48,8 +43,6 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
-
-  
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -132,15 +125,7 @@
      xfce.thunar
      xfce.xfce4-clipman-plugin
      xfce.xfce4-screenshooter
-
-     # Fonts
-     dejavu_fonts
-     jost
-     mononoki
-     source-code-pro
-     source-sans-pro
-     source-serif-pro
-   ];
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -180,19 +165,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    jost
-    mononoki
-    source-code-pro
-    source-sans-pro
-    source-serif-pro
-  ];
-  fonts.fontconfig.enable = true;
-  fonts.fontconfig.antialias = true;
-  fonts.fontconfig.hinting.enable = true;
-  fonts.fontconfig.defaultFonts.monospace = [ "mononoki" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
