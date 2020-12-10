@@ -84,10 +84,11 @@
      curl
      exa
      file
+     htop
      killall
      tree
+     usbutils
      wget
-     htop
 
      # compression
      zsh
@@ -107,6 +108,7 @@
      firefox
      ffmpeg
      gnome3.file-roller
+     mpv
      slack
 
      # ui/desktop environment
@@ -123,6 +125,7 @@
      xclip
      xfce.ristretto
      xfce.thunar
+     xfce.tumbler
      xfce.xfce4-clipman-plugin
      xfce.xfce4-screenshooter
   ];
