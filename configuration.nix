@@ -89,17 +89,19 @@
      snapper
 
      # utils
+     calc
      curl
      exa
      file
      htop
      killall
+     simg2img # Android sparse image -> image conversion
      tree
      usbutils
      wget
+     zsh
 
      # compression
-     zsh
      zip
      unzip
      gzip
@@ -108,28 +110,35 @@
      zstd
 
      # devel
+     colordiff
      git
+     manpages
      neovim
      ripgrep
 
      # ...apps?
+     evince
      firefox
      ffmpeg
      gnome3.file-roller
+     meld
      mpv
+     optipng
      slack
+     spotify
 
      # ui/desktop environment
      alacritty
      conky
+     gnome3.meld
      i3
      i3lock
      networkmanagerapplet
      pango
+     pavucontrol
      picom
      rofi
      scrot
-     pavucontrol
      xclip
      xfce.ristretto
      xfce.thunar
