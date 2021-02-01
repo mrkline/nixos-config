@@ -182,6 +182,7 @@
 
     picom.enable = true; # Use picom (compton fork) as the compositor
     openssh.enable = true; # Run OpenSSH
+    fstrim.enable = true;
   };
 
   # Open ports in the firewall.

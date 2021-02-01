@@ -27,12 +27,15 @@
       options = [ "compress-force=zstd" ];
     };
 
-  boot.initrd.luks.devices."crypto-root".device = "/dev/disk/by-uuid/a6bfc5f1-de2e-4f2c-b387-09b8bccb0c93";
+  boot.initrd.luks.devices."crypto-root" = {
+    device = "/dev/disk/by-uuid/a6bfc5f1-de2e-4f2c-b387-09b8bccb0c93";
+    allowDiscards = true;
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/585D-2DC4";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/585D-2DC4";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
