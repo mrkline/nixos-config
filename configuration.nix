@@ -181,11 +181,11 @@
   services.openssh.enable = true; # Run OpenSSH
 
   # Open ports in the firewall.
-  networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [ 22 80 ];
-  networking.firewall.allowedUDPPorts = [ 67 68 ];
+  #networking.firewall.allowPing = true;
+  #networking.firewall.allowedTCPPorts = [ 22 80 ];
+  #networking.firewall.allowedUDPPorts = [ 67 68 ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
