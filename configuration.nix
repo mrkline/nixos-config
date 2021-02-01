@@ -158,27 +158,31 @@
   programs.zsh.enableCompletion = true;
 
   # Snapper: Snapshot /home hourly
-  services.snapper.configs = {
-    home = {
-      fstype = "btrfs";
-      subvolume = "/home";
-      extraConfig = ''
-	ALLOW_USERS="mkline"
-	TIMELINE_CREATE="yes"
-	TIMELINE_CLEANUP="yes"
-	TIMELINE_MIN_AGE="1800"
-	TIMELINE_LIMIT_HOURLY="8"
-	TIMELINE_LIMIT_DAILY="10"
-	TIMELIME_LIMIT_WEEKLY="2"
-	TIMELINE_LIMIT_MONTHLY="4"
-	TIMELIME_LIMIT_YEARLY="1"
-      '';
+  services = {
+    snapper= {
+      configs = {
+        home = {
+          fstype = "btrfs";
+          subvolume = "/home";
+          extraConfig = ''
+            ALLOW_USERS="mkline"
+            TIMELINE_CREATE="yes"
+            TIMELINE_CLEANUP="yes"
+            TIMELINE_MIN_AGE="1800"
+            TIMELINE_LIMIT_HOURLY="8"
+            TIMELINE_LIMIT_DAILY="10"
+            TIMELIME_LIMIT_WEEKLY="2"
+            TIMELINE_LIMIT_MONTHLY="4"
+            TIMELIME_LIMIT_YEARLY="1"
+          '';
+        };
+      };
+      snapshotInterval = "hourly";
     };
-  };
-  services.snapper.snapshotInterval = "hourly";
 
-  services.picom.enable = true; # Use picom (compton fork) as the compositor
-  services.openssh.enable = true; # Run OpenSSH
+    picom.enable = true; # Use picom (compton fork) as the compositor
+    openssh.enable = true; # Run OpenSSH
+  };
 
   # Open ports in the firewall.
   #networking.firewall.allowPing = true;
