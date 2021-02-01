@@ -19,8 +19,10 @@
     source-sans-pro
     source-serif-pro
   ];
-  fonts.fontconfig.enable = true;
-  fonts.fontconfig.antialias = true;
-  fonts.fontconfig.hinting.enable = true;
-  fonts.fontconfig.defaultFonts.monospace = [ "mononoki" ];
+  fonts.fontconfig = {
+    enable = true;
+    antialias = true;
+    hinting.enable = true;
+    defaultFonts.monospace = [ "mononoki" ];
+  };
 }
