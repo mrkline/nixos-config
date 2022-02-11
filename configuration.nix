@@ -4,6 +4,8 @@
 
 { config, pkgs, ... }:
 
+let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
+in
 {
   imports =
     [
@@ -15,7 +17,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_5_9; # Use the latest kernel
+  #nix = {
+  #  package = pkgs.nixFlakes;
+  #  extraOptions = ''
+  #    experimental-features = nix-command flakes
+  #  '';
+  # };
+
+  #boot.kernelPackages = unstable.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.devShmSize = "10%";
   boot.tmpOnTmpfs = true; # tmpfs on /tmp please
 
@@ -67,7 +77,11 @@
     isNormalUser = true;
     home = "/home/mkline";
     description = "Matt Kline";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "dialout" # serial access
+      "wheel" # sudo
+      "networkmanager" # network conf
+    ];
     shell = pkgs.zsh;
   };
 
@@ -82,23 +96,34 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # disk stuff
+     # Kernel-dependent stuff
+     cudatoolkit
      compsize
      btrfs-progs
-     parted
+
+     # Nix fun
+     nix-tree
+     nix-index
+     
+     # disk stuff
+     unstable.parted
      snapper
 
      # utils
      calc
      curl
-     exa
+     unstable.exa
      file
      htop
      killall
+     moreutils
+     pv
      simg2img # Android sparse image -> image conversion
+     tmux
      tree
      usbutils
      wget
+     vim # for xxd
      zsh
 
      # compression
@@ -107,28 +132,38 @@
      gzip
      libarchive
      xz
-     zstd
+     unstable.zstd
 
      # devel
+     bintools
+     can-utils
+     codespell
      colordiff
-     git
-     manpages
-     neovim
-     ripgrep
+     dtc
+     elfutils
+     gnumake
+     picocom
+     unstable.clang
+     unstable.gcc
+     unstable.git
+     unstable.manpages
+     unstable.neovim-unwrapped
+     unstable.ripgrep
 
      # ...apps?
      evince
-     firefox
-     ffmpeg
+     unstable.firefox
+     unstable.ffmpeg
+     gimp
      gnome3.file-roller
      meld
      mpv
      optipng
-     slack
-     spotify
+     unstable.slack
+     unstable.spotify
 
      # ui/desktop environment
-     alacritty
+     unstable.alacritty
      conky
      gnome3.meld
      i3
@@ -154,8 +189,13 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
+  programs = {
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+    };
+  };
 
   # Snapper: Snapshot /home hourly
   services = {
@@ -170,10 +210,10 @@
             TIMELINE_CLEANUP="yes"
             TIMELINE_MIN_AGE="1800"
             TIMELINE_LIMIT_HOURLY="8"
-            TIMELINE_LIMIT_DAILY="10"
+            TIMELINE_LIMIT_DAILY="5"
             TIMELIME_LIMIT_WEEKLY="2"
-            TIMELINE_LIMIT_MONTHLY="4"
-            TIMELIME_LIMIT_YEARLY="1"
+            TIMELINE_LIMIT_MONTHLY="2"
+            TIMELIME_LIMIT_YEARLY="0"
           '';
         };
       };
@@ -184,6 +224,8 @@
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = true;
   };
+
+  services.printing.enable = true;
 
   # Open ports in the firewall.
   #networking.firewall.allowPing = true;

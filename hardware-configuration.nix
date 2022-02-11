@@ -6,14 +6,18 @@
     ];
 
   # Use GRUB as the bootloader
-  boot.loader.grub.enable = true;
-  # It's a GPT/EFI system (not MBR)
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.devices = [ "nodev" ];
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Grub is pokey at large resolutions. Use a smaller one.
-  boot.loader.grub.gfxmodeEfi = "1366x768";
+  boot.loader.grub = {
+    enable = true;
+    # It's a GPT/EFI system (not MBR)
+    efiSupport = true;
+    devices = [ "nodev" ];
+    # Grub is pokey at large resolutions. Use a smaller one.
+    gfxmodeEfi = "1366x768";
 
+    configurationLimit = 5;
+  };
+
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
