@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
-in
+in rec
 {
   imports =
     [
@@ -28,8 +28,6 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.devShmSize = "10%";
   boot.tmpOnTmpfs = true; # tmpfs on /tmp please
-
-  networking.hostName = "kline-nixos-desktop"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
@@ -61,17 +59,6 @@ in
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  services.xserver.enable = true;
-  services.xserver.autorun = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.xserver.windowManager.i3.enable = true;
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # Enable touchpad support (enabled default in most desktopManager).
-  #services.xserver.libinput.enable = true;
-  # Enable 32-bit OGL stuff
-  # hardware.opengl.driSupport32Bit = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mkline = {
     isNormalUser = true;
@@ -100,6 +87,7 @@ in
      cudatoolkit
      compsize
      btrfs-progs
+     boot.kernelPackages.bpftrace
 
      # Nix fun
      nix-tree
@@ -146,7 +134,7 @@ in
      unstable.clang
      unstable.gcc
      unstable.git
-     unstable.manpages
+     unstable.man-pages
      unstable.neovim-unwrapped
      unstable.ripgrep
 
@@ -161,10 +149,12 @@ in
      optipng
      unstable.slack
      unstable.spotify
+     unstable.zoom-us
 
      # ui/desktop environment
      unstable.alacritty
      conky
+     globalprotect-openconnect
      gnome3.meld
      i3
      i3lock
@@ -180,7 +170,11 @@ in
      xfce.tumbler
      xfce.xfce4-clipman-plugin
      xfce.xfce4-screenshooter
+     xfce.xfce4-power-manager
+     xfce.xfce4-notifyd
   ];
+
+  powerManagement.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -199,6 +193,8 @@ in
 
   # Snapper: Snapshot /home hourly
   services = {
+    globalprotect.enable = true;
+
     snapper= {
       configs = {
         home = {
@@ -223,6 +219,28 @@ in
     picom.enable = true; # Use picom (compton fork) as the compositor
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = true;
+
+    xserver = {
+      enable = true;
+      autorun = true;
+      desktopManager = {
+        xterm.enable = false;
+        xfce = {
+          enable = true;
+          noDesktop = true;
+          enableXfwm = false;
+        };
+      };
+      displayManager.defaultSession = "xfce+i3";
+
+      windowManager.i3.enable = true;
+      # Configure keymap in X11
+      layout = "us";
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+      # Enable 32-bit OGL stuff
+      # hardware.opengl.driSupport32Bit = true;
+    };
   };
 
   services.printing.enable = true;
@@ -240,6 +258,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 
 }
