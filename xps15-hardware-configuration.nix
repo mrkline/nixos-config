@@ -28,7 +28,7 @@
     };
     #kernelModules = [ "kvm-intel" ];
     blacklistedKernelModules = [ "nouveau" ];
-    #kernelParams = [ "nomodeset" ];
+    kernelParams = [ "i915.enable_psr=0" ];
     extraModulePackages = [ ];
   };
 
