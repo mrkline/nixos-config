@@ -88,6 +88,7 @@ in rec
      compsize
      btrfs-progs
      boot.kernelPackages.bpftrace
+     boot.kernelPackages.perf
 
      # Nix fun
      nix-tree
