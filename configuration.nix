@@ -93,7 +93,7 @@ in rec
      # Nix fun
      nix-tree
      nix-index
-     
+
      # disk stuff
      unstable.parted
      snapper
