@@ -17,12 +17,13 @@ in rec
 
   nixpkgs.config.allowUnfree = true;
 
-  #nix = {
+  nix = {
+      autoOptimiseStore = true;
   #  package = pkgs.nixFlakes;
   #  extraOptions = ''
   #    experimental-features = nix-command flakes
   #  '';
-  # };
+  };
 
   #boot.kernelPackages = unstable.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_latest;
