@@ -25,10 +25,24 @@ in rec
   #  '';
   };
 
-  #boot.kernelPackages = unstable.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.devShmSize = "10%";
-  boot.tmpOnTmpfs = true; # tmpfs on /tmp please
+  boot = {
+      devShmSize = "10%";
+      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = unstable.linuxPackages_latest;
+      kernel.sysctl = {
+        # REISUB
+        "kernel.sysrq" = 1;
+
+        # When we run out of memory, the kernel tries to flush all caches to disk
+        # before invoking OOM. This tends to thrash the disk and lock up the system,
+        # even if things aren't in swap.
+        #
+        # Have the killer kick in 512 MB early,
+        # which gives us headroom to avoid freezing.
+        "vm.admin_reserve_kbytes" = 524288;
+      };
+      tmpOnTmpfs = true; # tmpfs on /tmp please
+  };
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
