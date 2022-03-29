@@ -102,6 +102,7 @@ in rec
      cudatoolkit
      compsize
      btrfs-progs
+     boot.kernelPackages.bcc
      boot.kernelPackages.bpftrace
      boot.kernelPackages.perf
 
@@ -139,6 +140,7 @@ in rec
      unstable.zstd
 
      # devel
+     flamegraph
      bintools
      can-utils
      codespell
