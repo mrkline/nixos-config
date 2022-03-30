@@ -115,10 +115,13 @@ in rec
      snapper
 
      # utils
+     unstable.bat # cat clone for nvim-fzf-commands
      calc
      curl
      unstable.exa
+     unstable.fd # find clone for nvim-fzf-commands
      file
+     unstable.fzf
      htop
      killall
      moreutils
