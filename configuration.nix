@@ -111,7 +111,7 @@ in rec
      nix-index
 
      # disk stuff
-     unstable.parted
+     parted
      snapper
 
      # utils
