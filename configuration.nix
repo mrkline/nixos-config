@@ -173,7 +173,7 @@ in rec
      unstable.zoom-us
 
      # ui/desktop environment
-     unstable.alacritty
+     alacritty
      conky
      globalprotect-openconnect
      gnome3.meld
