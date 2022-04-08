@@ -238,6 +238,7 @@ in rec
     };
 
     picom.enable = true; # Use picom (compton fork) as the compositor
+    printing.enable = true;
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = true;
 
@@ -264,8 +265,6 @@ in rec
   };
 
   hardware.opengl.enable = true;
-
-  services.printing.enable = true;
 
   networking.firewall.enable = false;
 }
