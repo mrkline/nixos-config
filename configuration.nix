@@ -259,10 +259,11 @@ in rec
       layout = "us";
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
-      # Enable 32-bit OGL stuff
-      # hardware.opengl.driSupport32Bit = true;
     };
+
   };
+
+  hardware.opengl.enable = true;
 
   services.printing.enable = true;
 
