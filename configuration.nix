@@ -50,7 +50,7 @@ in rec
   networking.networkmanager.enable = true;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "C.UTF-8";
 
   # Enable sound.
   sound.enable = true;
