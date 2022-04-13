@@ -150,6 +150,7 @@ in rec
      meld
      mpv
      optipng
+     unstable.python3Packages.youtube-dl
      unstable.slack
      unstable.spotify
      unstable.zoom-us
