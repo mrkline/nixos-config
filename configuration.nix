@@ -143,7 +143,7 @@ in rec
 
      # ...apps?
      evince
-     unstable.firefox
+     unstable.firefox-bin
      unstable.ffmpeg
      gimp
      gnome3.file-roller
