@@ -13,6 +13,7 @@ in rec
       ./bbr.nix
       ./bfq.nix
       ./fonts.nix
+      ./latex.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -105,6 +106,7 @@ in rec
      file
      unstable.fzf
      htop
+     inotify-tools
      killall
      moreutils
      pv

@@ -1,20 +1,12 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-     # Fonts
-     dejavu_fonts
-     jost
-     mononoki
-     source-code-pro
-     source-sans-pro
-     source-serif-pro
-   ];
-
   fonts.fonts = with pkgs; [
     dejavu_fonts
     jost
     mononoki
+    noto-fonts
+    noto-fonts-emoji
     source-code-pro
     source-sans-pro
     source-serif-pro
