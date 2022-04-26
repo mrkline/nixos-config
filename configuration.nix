@@ -139,6 +139,7 @@ in rec
      unstable.clang
      unstable.gcc
      unstable.git
+     unstable.git-filter-repo
      unstable.man-pages
      unstable.neovim-unwrapped
      unstable.ripgrep
