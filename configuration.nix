@@ -82,29 +82,25 @@ in rec
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      # Kernel-dependent stuff
-     cudatoolkit
-     compsize
-     btrfs-progs
      boot.kernelPackages.bcc
      boot.kernelPackages.bpftrace
      boot.kernelPackages.perf
+     btrfs-progs
+     compsize
+     cudatoolkit
 
      # Nix fun
-     nix-tree
      nix-index
+     nix-tree
 
      # disk stuff
      parted
      snapper
 
      # utils
-     unstable.bat # cat clone for nvim-fzf-commands
      calc
      curl
-     unstable.exa
-     unstable.fd # find clone for nvim-fzf-commands
      file
-     unstable.fzf
      htop
      inotify-tools
      killall
@@ -114,26 +110,30 @@ in rec
      tmux
      tree
      usbutils
-     wget
      vim # for xxd
+     wget
      zsh
+     unstable.bat # cat clone for nvim-fzf-commands
+     unstable.exa
+     unstable.fd # find clone for nvim-fzf-commands
+     unstable.fzf
 
      # compression
-     zip
-     unzip
      gzip
      libarchive
+     unzip
      xz
+     zip
      unstable.zstd
 
      # devel
-     flamegraph
      bintools
      can-utils
      codespell
      colordiff
      dtc
      elfutils
+     flamegraph
      gnumake
      picocom
      unstable.clang
@@ -145,13 +145,13 @@ in rec
 
      # ...apps?
      evince
-     unstable.firefox-bin
-     unstable.ffmpeg
      gimp
      gnome3.file-roller
      meld
      mpv
      optipng
+     unstable.ffmpeg
+     unstable.firefox-bin
      unstable.python3Packages.youtube-dl
      unstable.slack
      unstable.spotify
@@ -175,9 +175,9 @@ in rec
      xfce.thunar
      xfce.tumbler
      xfce.xfce4-clipman-plugin
-     xfce.xfce4-screenshooter
-     xfce.xfce4-power-manager
      xfce.xfce4-notifyd
+     xfce.xfce4-power-manager
+     xfce.xfce4-screenshooter
   ];
 
   powerManagement.enable = true;
