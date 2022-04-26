@@ -17,6 +17,9 @@ in rec
     ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
+  ];
 
   nix = {
       autoOptimiseStore = true;
@@ -136,6 +139,7 @@ in rec
      flamegraph
      gnumake
      picocom
+     rust-bin.stable.latest.default
      unstable.clang
      unstable.gcc
      unstable.git
