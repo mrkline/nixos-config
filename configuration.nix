@@ -110,6 +110,7 @@ in rec
      moreutils
      par
      pv
+     s-tui
      simg2img # Android sparse image -> image conversion
      tmux
      tree
