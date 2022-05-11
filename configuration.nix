@@ -108,6 +108,7 @@ in rec
      inotify-tools
      killall
      moreutils
+     par
      pv
      simg2img # Android sparse image -> image conversion
      tmux
