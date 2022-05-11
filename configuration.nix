@@ -258,4 +258,9 @@ in rec
   hardware.opengl.enable = true;
 
   networking.firewall.enable = false;
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 }
