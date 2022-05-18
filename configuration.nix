@@ -154,6 +154,7 @@ in rec
      evince
      gimp
      gnome3.file-roller
+     libreoffice
      meld
      mpv
      optipng
