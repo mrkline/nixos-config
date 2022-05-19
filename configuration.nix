@@ -106,9 +106,11 @@ in rec
      file
      htop
      inotify-tools
+     iotop
      killall
      moreutils
      par
+     pstree
      pv
      s-tui
      simg2img # Android sparse image -> image conversion
