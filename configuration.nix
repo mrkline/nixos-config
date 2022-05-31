@@ -102,6 +102,7 @@ in rec
 
      # utils
      calc
+     cloc
      curl
      file
      htop
