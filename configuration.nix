@@ -172,7 +172,6 @@ in rec
      alacritty
      conky
      globalprotect-openconnect
-     gnome3.meld
      i3
      i3lock
      networkmanagerapplet
