@@ -31,8 +31,8 @@ in rec
 
   boot = {
       devShmSize = "10%";
-      #kernelPackages = pkgs.linuxPackages_latest;
-      kernelPackages = unstable.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = unstable.linuxPackages_latest;
       kernel.sysctl = {
         # REISUB
         "kernel.sysrq" = 1;
