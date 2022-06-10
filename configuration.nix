@@ -101,6 +101,7 @@ in rec
      snapper
 
      # utils
+     acpi
      calc
      cloc
      curl
@@ -135,6 +136,7 @@ in rec
      unstable.zstd
 
      # devel
+     awscli
      bintools
      can-utils
      codespell
@@ -143,6 +145,7 @@ in rec
      elfutils
      flamegraph
      gnumake
+     patchelf
      picocom
      rust-bin.stable.latest.default
      unstable.clang
