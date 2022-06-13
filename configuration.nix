@@ -139,20 +139,20 @@ in rec
      awscli
      bintools
      can-utils
+     clang
      codespell
      colordiff
      dtc
      elfutils
      flamegraph
+     gcc
      gnumake
+     man-pages
      patchelf
      picocom
      rust-bin.stable.latest.default
-     unstable.clang
-     unstable.gcc
      unstable.git
      unstable.git-filter-repo
-     unstable.man-pages
      unstable.neovim-unwrapped
      unstable.ripgrep
 
