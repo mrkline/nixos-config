@@ -164,6 +164,7 @@ in rec
      meld
      mpv
      optipng
+     zathura
      unstable.ffmpeg
      unstable.firefox-bin
      unstable.python3Packages.youtube-dl
