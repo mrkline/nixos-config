@@ -23,10 +23,10 @@ in rec
 
   nix = {
       autoOptimiseStore = true;
-  #  package = pkgs.nixFlakes;
-  #  extraOptions = ''
-  #    experimental-features = nix-command flakes
-  #  '';
+      package = pkgs.nixFlakes;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
   };
 
   boot = {
