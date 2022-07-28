@@ -153,6 +153,7 @@ in rec
      rust-bin.stable.latest.default
      unstable.git
      unstable.git-filter-repo
+     unstable.git-lfs
      unstable.neovim-unwrapped
      unstable.ripgrep
 
