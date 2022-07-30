@@ -146,6 +146,7 @@ in rec
      elfutils
      flamegraph
      gcc
+     gdb
      gnumake
      man-pages
      patchelf
