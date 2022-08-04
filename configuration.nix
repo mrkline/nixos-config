@@ -117,6 +117,7 @@ in rec
      inotify-tools
      iotop
      killall
+     lsof
      moreutils
      par
      pstree
