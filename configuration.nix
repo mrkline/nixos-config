@@ -169,7 +169,8 @@ in rec
      # ...apps?
      evince
      gimp
-     gnome3.file-roller
+     gnome.file-roller
+     gnome.gnome-calculator
      libreoffice
      meld
      mpv
