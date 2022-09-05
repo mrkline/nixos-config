@@ -156,6 +156,8 @@ in rec
      gcc
      gdb
      gnumake
+     haskell-language-server
+     hlint
      man-pages
      patchelf
      picocom
