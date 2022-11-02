@@ -183,6 +183,7 @@ in rec
      unstable.python3Packages.youtube-dl
      unstable.slack
      unstable.spotify
+     unstable.teams
      unstable.zoom-us
 
      # ui/desktop environment
