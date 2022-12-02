@@ -71,7 +71,6 @@
     };
     xserver = {
       videoDrivers = [ "modesetting" ];
-      useGlamor = true;
     };
   };
 
