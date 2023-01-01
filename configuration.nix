@@ -162,6 +162,7 @@ in rec
      patchelf
      picocom
      rust-bin.stable.latest.default
+     rust-analyzer
      unstable.git
      unstable.git-filter-repo
      unstable.git-lfs
