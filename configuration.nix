@@ -122,6 +122,7 @@ in rec
      par
      pstree
      pv
+     rename
      s-tui
      simg2img # Android sparse image -> image conversion
      tmux
