@@ -58,7 +58,12 @@ in rec
   # Set your time zone.
   time.timeZone = "US/Pacific";
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dhcp = "dhcpcd";
+    # Dongles
+    unmanaged = [ "enp0s20f0u1" ];
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
@@ -112,6 +117,7 @@ in rec
      calc
      cloc
      curl
+     dhcpcd
      file
      htop
      inotify-tools
@@ -119,6 +125,7 @@ in rec
      killall
      lsof
      moreutils
+     nmap
      par
      pstree
      pv
