@@ -122,6 +122,8 @@ in rec
      htop
      inotify-tools
      iotop
+     iperf3
+     jq
      killall
      lsof
      moreutils
@@ -146,6 +148,7 @@ in rec
      # compression
      gzip
      libarchive
+     pixz
      unzip
      xz
      zip
@@ -154,6 +157,7 @@ in rec
      # devel
      awscli
      bintools
+     binwalk
      can-utils
      clang
      codespell
