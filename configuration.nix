@@ -121,6 +121,7 @@ in rec
      file
      htop
      inotify-tools
+     iftop
      iotop
      iperf3
      jq
