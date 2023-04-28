@@ -194,7 +194,7 @@ in rec
      zathura
      unstable.ffmpeg
      unstable.firefox-bin
-     unstable.python3Packages.youtube-dl
+     unstable.python3Packages.yt-dlp
      unstable.slack
      unstable.spotify
      unstable.teams
