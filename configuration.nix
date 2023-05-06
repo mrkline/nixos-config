@@ -102,7 +102,7 @@ in rec
      boot.kernelPackages.perf
      btrfs-progs
      compsize
-     cudatoolkit
+     #cudatoolkit
 
      # Nix fun
      nix-index
