@@ -52,7 +52,7 @@ in rec
         "vm.overcommit_memory" = 2;
         "vm.overcommit_ratio" = 100;
       };
-      tmpOnTmpfs = true; # tmpfs on /tmp please
+      tmp.useTmpfs = true; # tmpfs on /tmp please
   };
 
   # Set your time zone.
@@ -246,19 +246,17 @@ in rec
     snapper= {
       configs = {
         home = {
-          fstype = "btrfs";
-          subvolume = "/home";
-          extraConfig = ''
-            ALLOW_USERS="mkline"
-            TIMELINE_CREATE="yes"
-            TIMELINE_CLEANUP="yes"
-            TIMELINE_MIN_AGE="1800"
-            TIMELINE_LIMIT_HOURLY="8"
-            TIMELINE_LIMIT_DAILY="5"
-            TIMELIME_LIMIT_WEEKLY="2"
-            TIMELINE_LIMIT_MONTHLY="2"
-            TIMELIME_LIMIT_YEARLY="0"
-          '';
+          FSTYPE = "btrfs";
+          SUBVOLUME = "/home";
+          ALLOW_USERS= ["mkline"];
+          TIMELINE_CREATE = true;
+          TIMELINE_CLEANUP = true;
+          TIMELINE_MIN_AGE = "1800";
+          TIMELINE_LIMIT_HOURLY = "8";
+          TIMELINE_LIMIT_DAILY = "5";
+          TIMELIME_LIMIT_WEEKLY = "2";
+          TIMELINE_LIMIT_MONTHLY = "2";
+          TIMELIME_LIMIT_YEARLY = "0";
         };
       };
       snapshotInterval = "hourly";
