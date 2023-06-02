@@ -33,6 +33,8 @@ in rec
       devShmSize = "10%";
       #kernelPackages = pkgs.linuxPackages_latest;
       kernelPackages = unstable.linuxPackages_latest;
+      # MORE PREEMPTION FOR PREEMPTION GODS
+      kernelParams = ["preempt=full"];
       kernel.sysctl = {
         # REISUB
         "kernel.sysrq" = 1;
