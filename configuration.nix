@@ -136,7 +136,7 @@ in rec
      pv
      rename
      s-tui
-     simg2img # Android sparse image -> image conversion
+     tinycbor
      tmux
      tree
      usbutils
