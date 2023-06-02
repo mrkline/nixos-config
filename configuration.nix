@@ -269,8 +269,6 @@ in rec
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = true;
 
-    ntp.enable = false;
-    openntpd.enable = false;
     chrony.enable = true;
 
     xserver = {
