@@ -198,7 +198,7 @@ in rec
      unstable.firefox-bin
      unstable.python3Packages.yt-dlp
      unstable.slack
-     unstable.spotify
+     spotify
      unstable.teams
      unstable.zoom-us
 
