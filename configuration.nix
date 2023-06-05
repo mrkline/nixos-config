@@ -121,6 +121,7 @@ in rec
      curl
      dhcpcd
      file
+     haskellPackages.cbor-tool
      htop
      inotify-tools
      iftop
