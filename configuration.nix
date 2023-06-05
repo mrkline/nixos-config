@@ -131,6 +131,7 @@ in rec
      killall
      lsof
      moreutils
+     mosh
      nmap
      par
      pstree
