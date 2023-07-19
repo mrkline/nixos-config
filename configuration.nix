@@ -119,6 +119,7 @@ in rec
      calc
      cloc
      curl
+     dhcp
      dhcpcd
      file
      haskellPackages.cbor-tool
