@@ -64,7 +64,7 @@ in rec
     enable = true;
     dhcp = "dhcpcd";
     # Dongles
-    unmanaged = [ "enp0s20f0u1" ];
+    unmanaged = [ "enp0s20f0u1" "enp0s20f0u2" ];
   };
 
   # Select internationalisation properties.
