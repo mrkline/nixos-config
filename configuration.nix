@@ -144,6 +144,7 @@ in rec
      tree
      usbutils
      vim # for xxd
+     vmtouch
      wget
      zsh
      unstable.bat # cat clone for nvim-fzf-commands
