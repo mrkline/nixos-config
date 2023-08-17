@@ -83,6 +83,7 @@ in rec
       "dialout" # serial access
       "wheel" # sudo
       "networkmanager" # network conf
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };
@@ -238,7 +239,10 @@ in rec
   #   enableSSHSupport = true;
   # };
   programs = {
-
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
     zsh = {
       enable = true;
       enableCompletion = true;
