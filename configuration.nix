@@ -199,7 +199,7 @@ in rec
      mpv
      optipng
      zathura
-     unstable.ffmpeg
+     unstable.ffmpeg_6-full
      unstable.firefox-bin
      unstable.python3Packages.yt-dlp
      unstable.slack
