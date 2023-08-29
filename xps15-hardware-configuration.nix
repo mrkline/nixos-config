@@ -74,6 +74,10 @@
     };
   };
 
+  hardware.opengl = {
+    extraPackages = with pkgs; [ intel-media-driver mesa.drivers ];
+  };
+
   swapDevices = [ ];
 
   system.stateVersion = "21.11";
