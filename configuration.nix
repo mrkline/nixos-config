@@ -205,7 +205,7 @@ in rec
      unstable.python3Packages.yt-dlp
      unstable.slack
      spotify
-     unstable.teams
+     #unstable.teams
      unstable.zoom-us
 
      # ui/desktop environment
