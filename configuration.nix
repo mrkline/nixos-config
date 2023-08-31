@@ -194,6 +194,7 @@ in rec
      gimp
      gnome.file-roller
      gnome.gnome-calculator
+     imagemagick
      libreoffice
      meld
      mpv
