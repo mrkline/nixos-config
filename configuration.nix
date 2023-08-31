@@ -200,13 +200,13 @@ in rec
      mpv
      optipng
      zathura
+     zoom-us
      unstable.ffmpeg_6-full
      unstable.firefox-bin
      unstable.python3Packages.yt-dlp
      unstable.slack
      spotify
      #unstable.teams
-     unstable.zoom-us
 
      # ui/desktop environment
      alacritty
