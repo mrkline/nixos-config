@@ -250,6 +250,11 @@ in rec
     };
   };
 
+  security.sudo = {
+    package = pkgs.sudo.override { withInsults = true; };
+    extraConfig = "Defaults insults";
+  };
+
   # Snapper: Snapshot /home hourly
   services = {
     globalprotect.enable = true;
