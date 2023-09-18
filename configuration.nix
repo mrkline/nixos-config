@@ -149,7 +149,7 @@ in rec
      wget
      zsh
      unstable.bat # cat clone for nvim-fzf-commands
-     unstable.exa
+     unstable.eza
      unstable.fd # find clone for nvim-fzf-commands
      unstable.fzf
 
