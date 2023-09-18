@@ -46,13 +46,6 @@ in rec
         # Have the killer kick in 512 MB early,
         # which gives us headroom to avoid freezing.
         "vm.admin_reserve_kbytes" = 524288;
-
-        # Experiment:
-        # Let's see how disabling overcommit plays with zram,
-        # or if it makes things die hard(er).
-        # https://www.etalabs.net/overcommit.html
-        "vm.overcommit_memory" = 2;
-        "vm.overcommit_ratio" = 100;
       };
       tmp.useTmpfs = true; # tmpfs on /tmp please
   };
