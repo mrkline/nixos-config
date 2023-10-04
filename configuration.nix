@@ -65,7 +65,6 @@ in rec
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mkline = {
@@ -243,9 +242,12 @@ in rec
     };
   };
 
-  security.sudo = {
-    package = pkgs.sudo.override { withInsults = true; };
-    extraConfig = "Defaults insults";
+  security = {
+    sudo = {
+      package = pkgs.sudo.override { withInsults = true; };
+      extraConfig = "Defaults insults";
+    };
+    rtkit.enable = true;
   };
 
   # Snapper: Snapshot /home hourly
@@ -269,6 +271,15 @@ in rec
         };
       };
       snapshotInterval = "hourly";
+    };
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
     };
 
     picom.enable = true; # Use picom (compton fork) as the compositor
