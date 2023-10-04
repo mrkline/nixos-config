@@ -250,10 +250,22 @@ in rec
     rtkit.enable = true;
   };
 
-  # Snapper: Snapshot /home hourly
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+  environment.etc."pipewire/pipewire.conf.d/rates.conf".text = ''
+    context.properties = {
+        default.clock.allowed-rates = [ 44100 48000 ]
+    }
+  '';
+
+
   services = {
     globalprotect.enable = true;
 
+    # Snapper: Snapshot /home hourly
     snapper= {
       configs = {
         home = {
@@ -271,15 +283,6 @@ in rec
         };
       };
       snapshotInterval = "hourly";
-    };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
     };
 
     picom.enable = true; # Use picom (compton fork) as the compositor
