@@ -8,6 +8,19 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  users.users.mkline = {
+    isNormalUser = true;
+    home = "/home/mkline";
+    description = "Matt Kline";
+    extraGroups = [
+      "dialout" # serial access
+      "wheel" # sudo
+      "networkmanager" # network conf
+      "wireshark"
+    ];
+    shell = pkgs.zsh;
+  };
+
   boot = {
     loader.grub = {
       enable = true;

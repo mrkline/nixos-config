@@ -53,11 +53,14 @@ in rec
   # Set your time zone.
   time.timeZone = "US/Pacific";
 
-  networking.networkmanager = {
-    enable = true;
-    dhcp = "dhcpcd";
-    # Dongles
-    unmanaged = [ "enp0s20f0u1" "enp0s20f0u2" ];
+  networking = {
+    nameservers = [ "8.8.8.8" ];
+    networkmanager = {
+      enable = true;
+      dhcp = "dhcpcd";
+      # Dongles
+      unmanaged = [ "enp0s20f0u1" "enp0s20f0u2" ];
+    };
   };
 
   # Select internationalisation properties.
@@ -65,20 +68,6 @@ in rec
 
   # Enable sound.
   sound.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mkline = {
-    isNormalUser = true;
-    home = "/home/mkline";
-    description = "Matt Kline";
-    extraGroups = [
-      "dialout" # serial access
-      "wheel" # sudo
-      "networkmanager" # network conf
-      "wireshark"
-    ];
-    shell = pkgs.zsh;
-  };
 
   # Everyone loves docs!
   documentation = {
