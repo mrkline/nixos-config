@@ -78,11 +78,7 @@
 
   services.xserver = {
     dpi = 200;
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      Xft.dpi: 200
-      EOF
-    '';
+    # Everyone else is handled in XFCE DPI settings
   };
 
   # This value determines the NixOS release from which the default

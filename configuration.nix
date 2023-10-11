@@ -159,6 +159,7 @@ in rec
      gnumake
      haskell-language-server
      hlint
+     isync
      man-pages
      patchelf
      picocom
@@ -173,18 +174,23 @@ in rec
      # ...apps?
      evince
      gimp
+     gnupg
      gnome.file-roller
      gnome.gnome-calculator
      imagemagick
      libreoffice
      meld
      mpv
+     mutt
      optipng
+     pass
+     pinentry-qt
      zathura
      zoom-us
      unstable.ffmpeg_6-full
      unstable.firefox-bin
-     unstable.python3Packages.yt-dlp
+     unstable.yt-dlp
+     unstable.signal-desktop
      unstable.slack
      spotify
      #unstable.teams
@@ -192,9 +198,11 @@ in rec
      # ui/desktop environment
      alacritty
      conky
+     feh
      globalprotect-openconnect
      i3
      i3lock
+     lxappearance
      networkmanagerapplet
      pango
      pavucontrol
@@ -260,7 +268,7 @@ in rec
         home = {
           FSTYPE = "btrfs";
           SUBVOLUME = "/home";
-          ALLOW_USERS= ["mkline"];
+          ALLOW_USERS= ["mkline" "mrkline"];
           TIMELINE_CREATE = true;
           TIMELINE_CLEANUP = true;
           TIMELINE_MIN_AGE = "1800";
