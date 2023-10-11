@@ -25,7 +25,6 @@
       devices = [ "nodev" ];
       # Grub is pokey at large resolutions. Use a smaller one.
       gfxmodeEfi = "1366x768";
-
       configurationLimit = 5;
     };
 
@@ -45,6 +44,10 @@
     extraModulePackages = [ ];
     # The terminals are flaky with modesetting and the current hardware setup.
     kernelParams = [ "nomodeset" ];
+    # Make the Intel mobo the default sound card
+    extraModprobeConfig = ''
+      options snd slots=snd_hda_intel
+    '';
   };
 
   fileSystems = {

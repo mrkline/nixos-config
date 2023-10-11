@@ -88,6 +88,10 @@ in rec
      compsize
      #cudatoolkit
 
+     # Optional firmware
+     alsa-firmware
+     alsa-utils
+
      # Nix fun
      nix-index
      nix-tree
