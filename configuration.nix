@@ -34,7 +34,7 @@ in rec
       #kernelPackages = pkgs.linuxPackages_latest;
       kernelPackages = unstable.linuxPackages_latest;
       # MORE PREEMPTION FOR PREEMPTION GODS
-      kernelParams = ["preempt=full"];
+      kernelParams = ["preempt=voluntary"];
       kernel.sysctl = {
         # REISUB
         "kernel.sysrq" = 1;
