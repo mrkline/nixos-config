@@ -300,6 +300,10 @@ in rec
           enableXfwm = false;
         };
       };
+      desktopManager.wallpaper = {
+        combineScreens = false;
+        mode = "fill";
+      };
       displayManager.defaultSession = "xfce+i3";
 
       windowManager.i3.enable = true;
