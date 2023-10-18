@@ -77,6 +77,10 @@
 
   swapDevices = [ ];
 
+  environment.sessionVariables = {
+      GDK_SCALE = "2.0";
+      GDK_DPI_SCALE = "0.5";
+  };
   services.xserver = {
     dpi = 200;
     # Everyone else is handled in XFCE DPI settings
