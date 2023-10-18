@@ -18,7 +18,7 @@ in rec
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
+    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/c6d2f0bbd56fc833a7c1973f422ca92a507d0320.tar.gz"))
   ];
 
   nix = {
