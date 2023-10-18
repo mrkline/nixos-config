@@ -193,6 +193,7 @@ in rec
      zoom-us
      unstable.ffmpeg_6-full
      unstable.firefox-bin
+     unstable.discord
      unstable.yt-dlp
      unstable.signal-desktop
      unstable.slack
