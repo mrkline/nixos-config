@@ -234,6 +234,9 @@ in rec
   #   enableSSHSupport = true;
   # };
   programs = {
+    ssh = {
+      startAgent = true;
+    };
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
