@@ -260,6 +260,7 @@ in rec
   environment.etc."pipewire/pipewire.conf.d/rates.conf".text = ''
     context.properties = {
         default.clock.allowed-rates = [ 44100 48000 ]
+        resample.quality = 10
     }
   '';
 
