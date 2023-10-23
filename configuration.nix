@@ -169,6 +169,7 @@ in rec
      picocom
      rust-bin.stable.latest.default
      rust-analyzer
+     sqlite
      unstable.git
      unstable.git-filter-repo
      unstable.git-lfs
