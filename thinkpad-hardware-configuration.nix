@@ -30,7 +30,10 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
-      luks.devices."cryptoroot".device = "/dev/disk/by-uuid/90847ad2-7a40-46ca-a1a5-9d9fbd5a8fc7";
+      luks.devices."cryptoroot" = {
+        device = "/dev/disk/by-uuid/90847ad2-7a40-46ca-a1a5-9d9fbd5a8fc7";
+        allowDiscards = true;
+      };
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
