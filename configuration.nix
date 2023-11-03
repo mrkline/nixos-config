@@ -97,6 +97,7 @@ in rec
      nix-tree
 
      # disk stuff
+     gparted
      parted
      snapper
 
