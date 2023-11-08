@@ -238,6 +238,7 @@ in rec
   programs = {
     ssh = {
       startAgent = true;
+      enableAskPassword = false;
     };
     wireshark = {
       enable = true;
