@@ -71,6 +71,9 @@
 
   networking.hostName = "mrkline-nixos-laptop"; # Define your hostname.
 
+  # I'll take care of the dongles.
+  networking.networkmanager.unmanaged = [ "interface-name:enp*" ];
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   services = {
