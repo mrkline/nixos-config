@@ -18,7 +18,7 @@ in rec
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/c6d2f0bbd56fc833a7c1973f422ca92a507d0320.tar.gz"))
+    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/6da9555a6d691bcdf43f90d8fd445e96d246f807.tar.gz"))
   ];
 
   nix = {
@@ -122,6 +122,7 @@ in rec
      par
      pstree
      pv
+     pwgen
      rename
      s-tui
      tinycbor
