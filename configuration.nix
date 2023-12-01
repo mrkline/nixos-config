@@ -13,6 +13,7 @@ in rec
       ./bbr.nix
       ./bfq.nix
       ./fonts.nix
+      ./haskell.nix
       ./latex.nix
     ];
 
