@@ -105,16 +105,15 @@ in rec
      calc
      cloc
      curl
-     dhcp
      dhcpcd
      file
-     haskellPackages.cbor-tool
      htop
      inotify-tools
      iftop
      iotop
      iperf3
      jq
+     kea
      killall
      lsof
      moreutils
