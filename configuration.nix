@@ -31,7 +31,7 @@ in rec
   };
 
   boot = {
-      devShmSize = "10%";
+      devShmSize = "20%";
       #kernelPackages = pkgs.linuxPackages_latest;
       kernelPackages = unstable.linuxPackages_latest;
       # MORE PREEMPTION FOR PREEMPTION GODS
@@ -49,6 +49,7 @@ in rec
         "vm.admin_reserve_kbytes" = 524288;
       };
       tmp.useTmpfs = true; # tmpfs on /tmp please
+      tmp.tmpfsSize = "100%";
   };
 
   # Set your time zone.
@@ -334,5 +335,6 @@ in rec
   zramSwap = {
     enable = true;
     algorithm = "zstd";
+    memoryPercent = 80;
   };
 }
