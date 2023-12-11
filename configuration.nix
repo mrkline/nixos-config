@@ -272,6 +272,12 @@ in rec
 
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
+
     globalprotect.enable = true;
 
     # Snapper: Snapshot /home hourly
