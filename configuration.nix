@@ -59,7 +59,6 @@ in rec
     nameservers = [ "8.8.8.8" ];
     networkmanager = {
       enable = true;
-      dhcp = "dhcpcd";
     };
   };
 
