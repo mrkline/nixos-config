@@ -192,7 +192,7 @@ in rec
      pinentry-qt
      zathura
      zoom-us
-     unstable.ffmpeg_6-full
+     unstable.ffmpeg-full
      unstable.firefox-bin
      unstable.discord
      unstable.yt-dlp
