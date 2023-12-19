@@ -24,6 +24,16 @@
       efiSupport = true;
       devices = [ "nodev" ];
       configurationLimit = 5;
+      extraEntries = ''
+        menuentry "Video games and Redmond spyware" {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          insmod chain
+          search --fs-uuid --set=root E05F-0604
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
     };
     loader.efi.canTouchEfiVariables = true;
     initrd = {
