@@ -46,12 +46,6 @@
       options = [ "subvol=root,compress-force=zstd" ];
     };
 
-    "/mnt/backed" = {
-      device = "/dev/disk/by-uuid/0fd841ce-5b00-42f6-8ebf-54aa23d77507";
-      fsType = "btrfs";
-      options = [ "subvol=backed,compress-force=zstd" ];
-    };
-
     "/boot" = {
       device = "/dev/disk/by-uuid/A8B2-13BF";
       fsType = "vfat";
