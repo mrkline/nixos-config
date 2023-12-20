@@ -186,6 +186,7 @@ in rec
      libreoffice
      meld
      mpv
+     msmtp
      mutt
      optipng
      pass
