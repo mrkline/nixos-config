@@ -177,6 +177,7 @@ in rec
      unstable.ripgrep
 
      # ...apps?
+     element-desktop
      evince
      gimp
      gnupg
