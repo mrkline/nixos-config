@@ -32,6 +32,7 @@ in rec
 
   boot = {
       devShmSize = "20%";
+      kernelModules = [ "sg" ];
       #kernelPackages = pkgs.linuxPackages_latest;
       kernelPackages = unstable.linuxPackages_latest;
       # MORE PREEMPTION FOR PREEMPTION GODS
