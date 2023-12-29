@@ -76,6 +76,9 @@
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  fonts.fontconfig.subpixel.lcdfilter = "default";
+  fonts.fontconfig.subpixel.rgba = "rgb";
+
   services = {
     tlp = {
       enable = true;
