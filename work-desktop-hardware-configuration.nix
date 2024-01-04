@@ -72,6 +72,9 @@
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
+  fonts.fontconfig.subpixel.lcdfilter = "default";
+  fonts.fontconfig.subpixel.rgba = "rgb";
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   swapDevices = [ ];
