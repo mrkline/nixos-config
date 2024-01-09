@@ -162,6 +162,8 @@ in rec
      gcc
      gdb
      gnumake
+     haskellPackages.hp2pretty
+     haskellPackages.threadscope
      haskell-language-server
      hlint
      isync
