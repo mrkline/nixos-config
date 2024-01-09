@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
 in rec
@@ -171,9 +171,7 @@ in rec
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
-     unstable.git
      unstable.git-filter-repo
-     unstable.git-lfs
      unstable.neovim-unwrapped
      unstable.ripgrep
 
@@ -238,6 +236,14 @@ in rec
   #   enableSSHSupport = true;
   # };
   programs = {
+    git = {
+      enable = true;
+      package = unstable.pkgs.git;
+      # Allow the LFS binary to be overridden in my work machine-local conf by
+      # https://github.com/b-camacho/git-lfs/tree/bmc/add-fetchhead-fallback
+      # until the LFS people feel like upstreaming it.
+      lfs = { enable = true; package = lib.mkDefault unstable.pkgs.git-lfs; };
+    };
     ssh = {
       startAgent = true;
       enableAskPassword = false;
