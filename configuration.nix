@@ -20,6 +20,7 @@ in rec
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/2b24e1f369f00f5ae9876e15e12f77e12c9c2374.tar.gz"))
+    (self: super: { mrkline = self.callPackage ./overlay/packages.nix { }; })
   ];
 
   nix = {
@@ -226,7 +227,11 @@ in rec
      xfce.xfce4-notifyd
      xfce.xfce4-power-manager
      xfce.xfce4-screenshooter
-  ];
+
+  ] ++ (
+  with mrkline; [ # My crap
+     clip
+  ]);
 
   powerManagement.enable = true;
 
