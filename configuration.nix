@@ -230,7 +230,10 @@ in rec
 
   ] ++ (
   with mrkline; [ # My crap
+     colortest
      clip
+     cp-reflink
+     tt
   ]);
 
   powerManagement.enable = true;
