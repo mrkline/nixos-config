@@ -163,6 +163,7 @@ in rec
      gcc
      gdb
      gnumake
+     haskellPackages.ghc-prof-flamegraph
      haskellPackages.hp2pretty
      haskellPackages.threadscope
      haskell-language-server
