@@ -109,6 +109,7 @@ in rec
      curl
      dhcpcd
      file
+     ghostscript
      htop
      inotify-tools
      iftop
