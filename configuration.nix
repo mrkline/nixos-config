@@ -23,13 +23,7 @@ in rec
     (self: super: { mrkline = self.callPackage ./overlay/packages.nix { }; })
   ];
 
-  nix = {
-      settings.auto-optimise-store = true;
-      package = pkgs.nixFlakes;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
-  };
+  nix.settings.auto-optimise-store = true;
 
   boot = {
       devShmSize = "20%";
