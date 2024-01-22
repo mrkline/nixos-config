@@ -44,6 +44,7 @@ in rec
         # which gives us headroom to avoid freezing.
         "vm.admin_reserve_kbytes" = 524288;
       };
+      supportedFilesystems = [ "bcachefs" ];
       tmp.useTmpfs = true; # tmpfs on /tmp please
       tmp.tmpfsSize = "100%";
   };
@@ -79,6 +80,7 @@ in rec
      boot.kernelPackages.bcc
      boot.kernelPackages.bpftrace
      boot.kernelPackages.perf
+     unstable.bcachefs-tools
      btrfs-progs
      compsize
      #cudatoolkit
