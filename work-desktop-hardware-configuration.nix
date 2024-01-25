@@ -19,16 +19,12 @@
   };
 
   boot = {
-    loader.grub = {
-      enable = true;
-      efiSupport = true;
-      devices = [ "nodev" ];
-      # Grub is pokey at large resolutions. Use a smaller one.
-      gfxmodeEfi = "1366x768";
-      configurationLimit = 5;
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
+      systemd-boot.consoleMode = "max";
+      efi.canTouchEfiVariables = true;
     };
-
-    loader.efi.canTouchEfiVariables = true;
 
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
