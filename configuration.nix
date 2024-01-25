@@ -20,7 +20,7 @@ in rec
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/2b24e1f369f00f5ae9876e15e12f77e12c9c2374.tar.gz"))
-    (self: super: { mrkline = self.callPackage ./overlay/packages.nix { }; })
+    (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
   ];
 
   nix.settings.auto-optimise-store = true;
@@ -226,13 +226,7 @@ in rec
      xfce.xfce4-power-manager
      xfce.xfce4-screenshooter
 
-  ] ++ (
-  with mrkline; [ # My crap
-     colortest
-     clip
-     cp-reflink
-     tt
-  ]);
+  ] ++ (builtins.attrValues pkgs.mrkline); # my crap
 
   powerManagement.enable = true;
 
