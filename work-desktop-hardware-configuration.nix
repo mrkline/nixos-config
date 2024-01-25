@@ -1,6 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
-{
+let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
+in {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -57,6 +58,20 @@
       device = "/dev/disk/by-uuid/585D-2DC4";
       fsType = "vfat";
     };
+
+  };
+
+  # TODO: Get the password to bcachefs via normal NixOs mount machinery
+  systemd.services.mount-rotating-rust = {
+    enable = true;
+    description = "Mount bcachefs to /rust";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${unstable.bcachefs-tools}/bin/bcachefs mount -k ask /dev/disk/by-uuid/c9393593-e940-4af5-8b2b-e6d8d4c23146 /rust";
+      StandardInput="file:/home/bcache.pass";
+      Restart = "no";
+    };
+    wantedBy = [ "multi-user.target" ];
   };
 
   hardware = {
