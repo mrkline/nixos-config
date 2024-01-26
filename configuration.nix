@@ -214,7 +214,6 @@ in rec
      networkmanagerapplet
      pango
      pavucontrol
-     picom
      rofi
      scrot
      xclip
@@ -310,7 +309,12 @@ in rec
       snapshotInterval = "hourly";
     };
 
-    picom.enable = true; # Use picom (compton fork) as the compositor
+    picom = { # Use picom (compton fork) as the compositor
+      enable = true;
+      backend = "glx";
+      vSync = true;
+    };
+
     printing.enable = true;
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = true;
