@@ -56,6 +56,14 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
+    opengl = {
+      extraPackages = with pkgs; [
+        intel-media-driver
+        # vaapi-intel-hybrid # older? Let's try i-m-d first
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
   };
 
   networking.hostName = "mrkline-thinkpad";
