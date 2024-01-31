@@ -22,14 +22,12 @@
   };
 
   boot = {
-    loader.grub = {
-      enable = true;
-      efiSupport = true;
-      devices = [ "nodev" ];
-      configurationLimit = 5;
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
+      systemd-boot.consoleMode = "max";
+      efi.canTouchEfiVariables = true;
     };
-
-    loader.efi.canTouchEfiVariables = true;
 
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
