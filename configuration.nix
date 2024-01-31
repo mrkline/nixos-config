@@ -23,7 +23,10 @@ in rec
     (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
   ];
 
-  nix.settings.auto-optimise-store = true;
+  nix = {
+    settings.auto-optimise-store = true;
+    extraOptions = "experimental-features = flakes";
+  };
 
   boot = {
       devShmSize = "20%";
