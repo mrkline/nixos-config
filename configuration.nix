@@ -203,6 +203,7 @@ in rec
      unstable.yt-dlp
      unstable.signal-desktop
      unstable.slack
+     unstable.typst
      spotify
      #unstable.teams
 
