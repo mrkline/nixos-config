@@ -4,7 +4,8 @@
 
 { config, pkgs, lib, ... }:
 
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
+let unstable-fixed-nvidia-src = builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/15a23479eb587a38d393ce050c6c038102294319.tar.gz";
+    unstable = (import unstable-fixed-nvidia-src { config = { allowUnfree = true; }; }).pkgs;
 in rec
 {
   imports =
