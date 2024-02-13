@@ -11,6 +11,7 @@
     description = "Matt Kline";
     extraGroups = [
       "dialout" # serial access
+      "docker"
       "wheel" # sudo
       "networkmanager" # network conf
       "wireshark"
