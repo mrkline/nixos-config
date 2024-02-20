@@ -55,9 +55,19 @@
         fsType = "btrfs";
         options = [ "subvol=root" ];
       };
-    "/boot" = { 
+    "/boot" = {
       device = "/dev/disk/by-uuid/E05F-0604";
       fsType = "vfat";
+    };
+    "/windows" = {
+      device = "dev/disk/by-uuid/288FCE7060297C5F";
+      fsType = "ntfs-3g";
+      options = [ "ro" ];
+    };
+    "/windows-data" = {
+      device = "dev/disk/by-uuid/964AFEE14AFEBCD5";
+      fsType = "ntfs-3g";
+      options = [ "ro" ];
     };
   };
 

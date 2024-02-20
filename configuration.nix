@@ -47,7 +47,7 @@ in rec
         # which gives us headroom to avoid freezing.
         "vm.admin_reserve_kbytes" = 524288;
       };
-      supportedFilesystems = [ "bcachefs" ];
+      supportedFilesystems = [ "bcachefs" "ntfs" ];
       tmp.useTmpfs = true; # tmpfs on /tmp please
       tmp.tmpfsSize = "100%";
   };
