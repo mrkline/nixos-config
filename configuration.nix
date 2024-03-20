@@ -101,28 +101,68 @@ in rec
      parted
      snapper
 
-     # utils
+     # compression
+     gzip
+     libarchive
+     pixz
+     unzip
+     xz
+     zip
+     unstable.zstd
+
+     # compilers, language-specific tooling
+     clang
+     gcc
+     gdb
+     haskellPackages.ghc-prof-flamegraph
+     haskellPackages.hp2pretty
+     haskellPackages.threadscope
+     haskell-language-server
+     hlint
+     rust-bin.stable.latest.default
+     rust-analyzer
+     sqlite
+
+     # other CLIs, utils
      acpi
+     awscli
+     bintools
+     binwalk
      calc
+     can-utils
      cloc
+     codespell
+     colordiff
      curl
      dhcpcd
+     dtc
+     elfutils
      file
+     flamegraph
      ghostscript
      graphviz
      htop
-     inotify-tools
      iftop
+     inotify-tools
      iotop
      iperf3
+     isync
      jq
      kea
      killall
      lsof
+     man-pages
      moreutils
      mosh
+     msmtp
+     mutt
      nmap
+     optipng
      par
+     pass
+     patchelf
+     picocom
+     pinentry-qt
      pstree
      pv
      pwgen
@@ -139,81 +179,39 @@ in rec
      unstable.bat # cat clone for nvim-fzf-commands
      unstable.eza
      unstable.fd # find clone for nvim-fzf-commands
+     unstable.ffmpeg-full
      unstable.fzf
-
-     # compression
-     gzip
-     libarchive
-     pixz
-     unzip
-     xz
-     zip
-     unstable.zstd
-
-     # devel
-     awscli
-     bintools
-     binwalk
-     can-utils
-     clang
-     codespell
-     colordiff
-     dtc
-     elfutils
-     flamegraph
-     gcc
-     gdb
-     gnumake
-     haskellPackages.ghc-prof-flamegraph
-     haskellPackages.hp2pretty
-     haskellPackages.threadscope
-     haskell-language-server
-     hlint
-     isync
-     man-pages
-     patchelf
-     picocom
-     rust-bin.stable.latest.default
-     rust-analyzer
-     sqlite
      unstable.git-filter-repo
      unstable.neovim-unwrapped
      unstable.ripgrep
+     unstable.typst
+     unstable.yt-dlp
 
-     # ...apps?
+     # ...GUIs? Apps?
      element-desktop
      evince
      gimp
-     gnupg
+     globalprotect-openconnect
      gnome.file-roller
      gnome.gnome-calculator
+     gnupg
      imagemagick
      libreoffice
      meld
      mpv
-     msmtp
-     mutt
-     optipng
-     pass
-     pinentry-qt
+     spotify
      zathura
      zoom-us
      unstable.google-chrome
-     unstable.ffmpeg-full
      unstable.firefox-bin
      unstable.discord
-     unstable.yt-dlp
      unstable.signal-desktop
      unstable.slack
-     unstable.typst
-     spotify
-     #unstable.teams
 
-     # ui/desktop environment
+     # desktop environment
      alacritty
      conky
      feh
-     globalprotect-openconnect
      i3
      i3lock
      lxappearance
