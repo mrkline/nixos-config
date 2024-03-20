@@ -109,6 +109,7 @@ in rec
      dhcpcd
      file
      ghostscript
+     graphviz
      htop
      inotify-tools
      iftop
