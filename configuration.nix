@@ -155,7 +155,7 @@ in rec
      bintools
      binwalk
      can-utils
-     clang_16
+     clang
      codespell
      colordiff
      dtc
