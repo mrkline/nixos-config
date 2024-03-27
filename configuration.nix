@@ -126,6 +126,7 @@ in rec
      # other CLIs, utils
      acpi
      awscli
+     backblaze-b2
      bintools
      binwalk
      calc
