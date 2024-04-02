@@ -191,6 +191,7 @@ in rec
      # ...GUIs? Apps?
      element-desktop
      evince
+     filezilla
      gimp
      globalprotect-openconnect
      gnome.file-roller
