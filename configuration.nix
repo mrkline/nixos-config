@@ -112,7 +112,6 @@ in rec
 
      # compilers, language-specific tooling
      clang
-     gcc
      gdb
      haskellPackages.ghc-prof-flamegraph
      haskellPackages.hp2pretty
