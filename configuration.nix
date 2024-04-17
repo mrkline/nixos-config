@@ -205,7 +205,7 @@ in rec
      zathura
      zoom-us
      unstable.google-chrome
-     unstable.firefox-bin
+     unstable.firefox
      unstable.discord
      unstable.signal-desktop
      unstable.slack
