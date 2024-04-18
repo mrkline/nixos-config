@@ -25,7 +25,7 @@ in rec
 
   nix = {
     settings.auto-optimise-store = true;
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = "experimental-features = nix-command fetch-closure flakes";
   };
 
   boot = {
