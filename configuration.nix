@@ -17,6 +17,7 @@ in rec
       ./latex.nix
     ];
 
+  nixpkgs.config.allowBroken = true; # until haskellPackages.cbor-tool gets unmarked
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/9ef1eca23bee5fb8080863909af3802130b2ee57.tar.gz"))
@@ -113,14 +114,15 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
-     haskellPackages.ghc-prof-flamegraph
-     haskellPackages.hp2pretty
-     haskellPackages.threadscope
-     haskell-language-server
      hlint
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
+     unstable.haskellPackages.cbor-tool
+     unstable.haskellPackages.ghc-prof-flamegraph
+     unstable.haskellPackages.hp2pretty
+     unstable.haskellPackages.threadscope
+     unstable.haskell-language-server
 
      # other CLIs, utils
      acpi
