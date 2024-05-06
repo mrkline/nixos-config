@@ -4,7 +4,7 @@
 
 { config, pkgs, lib, ... }:
 
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
+let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
 in rec
 {
   imports =
