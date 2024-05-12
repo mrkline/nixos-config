@@ -66,6 +66,8 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
+    bluetooth.enable = false;
+    bluetooth.powerOnBoot = false;
   };
 
   networking.hostName = "mrkline-nixos-laptop"; # Define your hostname.
