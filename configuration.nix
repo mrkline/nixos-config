@@ -94,6 +94,7 @@ in rec
      alsa-utils
 
      # Nix fun
+     cachix
      nix-index
      nix-tree
 
