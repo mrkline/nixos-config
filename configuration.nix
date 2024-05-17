@@ -20,7 +20,7 @@ in rec
   nixpkgs.config.allowBroken = true; # until haskellPackages.cbor-tool gets unmarked
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/9ef1eca23bee5fb8080863909af3802130b2ee57.tar.gz"))
+    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/d3a96b08a7280a5753246129b462eed3662815d5.tar.gz"))
     (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
   ];
 
