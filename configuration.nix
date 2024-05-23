@@ -198,6 +198,7 @@ in rec
      globalprotect-openconnect
      gnome.file-roller
      gnome.gnome-calculator
+     gnome.seahorse
      gnupg
      imagemagick
      libreoffice
@@ -253,6 +254,7 @@ in rec
       # until the LFS people feel like upstreaming it.
       lfs = { enable = true; package = lib.mkDefault unstable.pkgs.git-lfs; };
     };
+    # We use gnome-keyring below, but it only starts --components=secrets. Keep up the ssh-agent.
     ssh = {
       startAgent = true;
       enableAskPassword = false;
@@ -266,6 +268,11 @@ in rec
       enableCompletion = true;
     };
   };
+
+  # GNOME, how we love thee
+  services.gnome.gnome-keyring.enable = true;
+  # In machine config!
+  # security.pam.services.<ME>.enableGnomeKeyring = true;
 
   security = {
     sudo = {
