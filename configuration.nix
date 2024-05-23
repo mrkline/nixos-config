@@ -314,6 +314,7 @@ in rec
           TIMELIME_LIMIT_YEARLY = "0";
         };
       };
+      persistentTimer = true;
       snapshotInterval = "hourly";
     };
 
