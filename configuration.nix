@@ -26,7 +26,10 @@ in rec
 
   nix = {
     settings.auto-optimise-store = true;
-    extraOptions = "experimental-features = nix-command fetch-closure flakes";
+    extraOptions = ''
+        experimental-features = nix-command fetch-closure flakes
+        builders-use-substitutes = true
+    '';
   };
 
   boot = {
