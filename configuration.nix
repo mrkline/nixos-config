@@ -272,7 +272,8 @@ in rec
   # GNOME, how we love thee
   services.gnome.gnome-keyring.enable = true;
   # In machine config!
-  # security.pam.services.<ME>.enableGnomeKeyring = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
+
 
   security = {
     sudo = {

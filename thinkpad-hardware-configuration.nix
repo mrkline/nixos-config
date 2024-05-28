@@ -21,8 +21,6 @@
     shell = pkgs.zsh;
   };
 
-  security.pam.services.mrkline.enableGnomeKeyring = true;
-
   boot = {
     loader = {
       systemd-boot.enable = true;
