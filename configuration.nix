@@ -290,19 +290,20 @@ in rec
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    configPackages = [
+      (pkgs.writeTextDir "share/pipewire/pipewire.conf.d/44-multi-rates.conf" ''
+        context.properties = {
+          default.clock.allowed-rates = [ 44100 48000 ]
+          resample.quality = 10
+        }
+      '')
+    ];
   };
-  environment.etc."pipewire/pipewire.conf.d/rates.conf".text = ''
-    context.properties = {
-        default.clock.allowed-rates = [ 44100 48000 ]
-        resample.quality = 10
-    }
-  '';
-
 
   services = {
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       openFirewall = true;
     };
 
@@ -341,6 +342,8 @@ in rec
 
     chrony.enable = true;
 
+    displayManager.defaultSession = "xfce+i3";
+
     xserver = {
       enable = true;
       autorun = true;
@@ -356,15 +359,15 @@ in rec
         combineScreens = false;
         mode = "fill";
       };
-      displayManager.defaultSession = "xfce+i3";
 
       windowManager.i3.enable = true;
       # Configure keymap in X11
-      layout = "us";
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
-      libinput.touchpad.disableWhileTyping = true;
+      xkb.layout = "us";
     };
+
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
+    libinput.touchpad.disableWhileTyping = true;
 
   };
 
