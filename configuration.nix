@@ -197,7 +197,6 @@ in rec
      evince
      filezilla
      gimp
-     globalprotect-openconnect
      gnome.file-roller
      gnome.gnome-calculator
      gnome.seahorse
