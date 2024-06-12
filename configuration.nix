@@ -166,7 +166,6 @@ in rec
      pass
      patchelf
      picocom
-     pinentry-qt
      pstree
      pv
      pwgen
@@ -192,6 +191,7 @@ in rec
      unstable.yt-dlp
 
      # ...GUIs? Apps?
+     crispy-doom
      element-desktop
      evince
      filezilla
@@ -204,6 +204,7 @@ in rec
      libreoffice
      meld
      mpv
+     pinentry-qt
      spotify
      zathura
      zoom-us
