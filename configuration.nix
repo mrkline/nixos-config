@@ -134,7 +134,6 @@ in rec
      bintools
      binwalk
      calc
-     can-utils
      cloc
      codespell
      colordiff
