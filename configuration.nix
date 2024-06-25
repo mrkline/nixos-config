@@ -87,7 +87,6 @@ in rec
      boot.kernelPackages.bcc
      boot.kernelPackages.bpftrace
      boot.kernelPackages.perf
-     unstable.bcachefs-tools
      btrfs-progs
      compsize
      #cudatoolkit
