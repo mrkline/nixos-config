@@ -176,6 +176,7 @@ in rec
      tree
      usbutils
      vim # for xxd
+     viu
      vmtouch
      wget
      zsh
