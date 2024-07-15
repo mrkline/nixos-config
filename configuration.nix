@@ -3,12 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
-
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
 in rec
 {
   imports =
     [
+      <home-manager/nixos>
       ./hardware-configuration.nix
       ./bbr.nix
       ./bfq.nix
@@ -237,6 +237,18 @@ in rec
      xfce.xfce4-screenshooter
 
   ] ++ (builtins.attrValues pkgs.mrkline); # my crap
+  environment.pathsToLink = [ "/share/zsh" ]; # zsh completions
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    # Saves some stat() calls, FWIW:
+    # https://blog.packagecloud.io/eng/2017/02/21/set-environment-variable-save-thousands-of-system-calls/
+    TZ = ":/etc/localtime";
+    LESS = "-x4RSX";
+    # bat (syntax-highlighting cat) - white text on light term is bad, mmmk?
+    BAT_THEME = "ansi";
+    # ditto for fd (colorized find)
+    LS_COLORS = "";
+  };
 
   powerManagement.enable = true;
 

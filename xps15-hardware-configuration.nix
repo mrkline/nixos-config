@@ -21,6 +21,7 @@
     ];
     shell = pkgs.zsh;
   };
+  home-manager.users.mkline = import ./home-manager.nix { workBox = true; };
 
   boot = {
     loader = {
