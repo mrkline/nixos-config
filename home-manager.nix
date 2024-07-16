@@ -1,5 +1,6 @@
 { workBox }:
-{ pkgs, ... }: {
+let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
+in { pkgs, ... }: {
     programs = {
         zsh = {
             enable = true;
@@ -104,10 +105,24 @@
                 init.defaultBranch = "master";
             };
         };
+        neovim = {
+            enable = true;
+            package = unstable.neovim-unwrapped;
+            plugins = [ unstable.vimPlugins.vim-plug ];
+            extraConfig = builtins.readFile ./dotfiles/init.vim;
+        };
         fzf = {
             enable = true;
             enableZshIntegration = true;
         };
+    };
+    home.file = {
+        ".iftoprc".text = ''
+            line-display: one-line-both
+            show-bars: no
+            show-totals: yes
+        '';
+        ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
     };
     home.stateVersion = "24.05";
 }
