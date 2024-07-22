@@ -17,6 +17,7 @@
     ];
     shell = pkgs.zsh;
   };
+  home-manager.users.mrkline = import ./home-manager.nix { workBox = false; };
 
   boot = {
     loader.grub = {
