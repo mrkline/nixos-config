@@ -139,9 +139,3 @@ bar {
 # Keyboard shortcuts
 bindsym Print exec xfce4-screenshooter -f
 bindsym Ctrl+Print exec xfce4-screenshooter
-bindsym $mod+Ctrl+v exec xfce4-mixer
-
-# Startup stuff
-exec picom
-exec nm-applet
-exec feh --no-fehbg --bg-fill ~/wallpapers/15-29-intercept-cropped.jpg
