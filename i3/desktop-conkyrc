@@ -1,0 +1,23 @@
+-- Modified fom from https://github.com/NorthAntrim/i3-config/blob/master/.i3/conkyrc
+
+conky.config = {
+	background = false,
+	out_to_console = true,
+	out_to_x = false,
+	update_interval = 1,
+	cpu_avg_samples = 5,
+	net_avg_samples = 5,
+	no_buffers = true,
+	pad_percents = 2,
+	short_units = true,
+	use_spacer = 'left'
+}
+
+conky.text = [[
+[
+{ "full_text":"CPU: ${cpu cpu0}%", "color":"\#edb951"},
+{ "full_text":"MEM: $memperc%", "color":"\#edb951"},
+{ "full_text":"Z: ${tztime Zulu %a, %F %H:%M}", "color":"\#edb951"},
+{ "full_text":"${time %a, %F %H:%M:%S}", "color":"\#edb951"}
+],
+]]

@@ -1,4 +1,4 @@
-{ workBox }:
+{ workBox, machineFiles }:
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
 in { pkgs, ... }: {
     programs = {
@@ -116,13 +116,14 @@ in { pkgs, ... }: {
             enableZshIntegration = true;
         };
     };
-    home.file = {
+    home.file = ({
         ".iftoprc".text = ''
             line-display: one-line-both
             show-bars: no
             show-totals: yes
         '';
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
-    };
+        ".config/i3/conky".source = ./i3/conky;
+    } // machineFiles);
     home.stateVersion = "24.05";
 }
