@@ -24,7 +24,7 @@
   home-manager.users.mkline = import ./home-manager.nix {
       workBox = true;
       machineFiles = {
-          ".config/i3/conkyrc".source = ./i3/laptop-conkyrc;
+          ".config/i3/conkyrc".source = ./i3/conkyrc;
           ".config/i3/config".source = ./i3/laptop-config;
       };
   };
