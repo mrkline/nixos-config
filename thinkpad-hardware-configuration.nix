@@ -20,7 +20,13 @@
     ];
     shell = pkgs.zsh;
   };
-  home-manager.users.mrkline = import ./home-manager.nix { workBox = false; };
+  home-manager.users.mrkline = import ./home-manager.nix {
+      workBox = false;
+      machineFiles = {
+          ".config/i3/conkyrc".source = ./i3/laptop-conkyrc;
+          ".config/i3/config".source = ./i3/laptop-config;
+      };
+  };
 
   boot = {
     loader = {
