@@ -24,7 +24,7 @@
       workBox = false;
       machineFiles = {
           ".config/i3/conkyrc".source = ./i3/laptop-conkyrc;
-          ".config/i3/config".source = ./i3/laptop-config;
+          ".config/i3/config".source = ./i3/laptop-hidpi-config;
       };
   };
 
