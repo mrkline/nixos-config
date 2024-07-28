@@ -117,13 +117,17 @@ in { pkgs, ... }: {
         };
     };
     home.file = ({
+        ".cargo/config.toml".text = ''
+            [profile.dev]
+            opt-level = 2
+        '';
+        ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
+        ".config/i3/conky".source = ./i3/conky;
         ".iftoprc".text = ''
             line-display: one-line-both
             show-bars: no
             show-totals: yes
         '';
-        ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
-        ".config/i3/conky".source = ./i3/conky;
     } // machineFiles);
     home.stateVersion = "24.05";
 }
