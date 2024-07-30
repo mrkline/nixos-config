@@ -23,7 +23,7 @@
   home-manager.users.mrkline = import ./home-manager.nix {
       workBox = false;
       machineFiles = {
-          ".config/i3/conkyrc".source = ./i3/laptop-conkyrc;
+          ".config/i3/conkyrc".source = ./i3/conkyrc;
           ".config/i3/config".source = ./i3/laptop-hidpi-config;
       };
   };

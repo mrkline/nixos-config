@@ -1,0 +1,65 @@
+-- Conky config for my desktop
+-- Modified fom from https://bbs.archlinux.org/viewtopic.php?pid=1084822#p1084822
+
+conky.config = {
+	background = false,
+	double_buffer = true,
+	update_interval = 1,
+	cpu_avg_samples = 5,
+	net_avg_samples = 5,
+	no_buffers = true,
+	-- Window base (for if we choose to launch as a window) --
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	-- Window looks --
+	alignment = 'top_left',
+	gap_x = 1650,
+	gap_y = 35,
+	minimum_width = 250,
+	minimum_height = 5,
+	border_width = 0,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	stippled_borders = 0,
+	default_color = 'edb951',
+	default_outline_color = 'edb951',
+	border_inner_margin = 5,
+	border_outer_margin = 5,
+	border_width = 5,
+	-- Font --
+	use_xft = true,
+	xftalpha = 1,
+	font = 'mononoki:size=12'
+}
+
+conky.text = [[
+# CPU
+C1:${alignr}${cpu cpu1}% ${cpubar cpu1 6,80}
+C2:${alignr}${cpu cpu2}% ${cpubar cpu2 6,80}
+C3:${alignr}${cpu cpu3}% ${cpubar cpu3 6,80}
+C4:${alignr}${cpu cpu4}% ${cpubar cpu4 6,80}
+C5:${alignr}${cpu cpu5}% ${cpubar cpu5 6,80}
+C6:${alignr}${cpu cpu6}% ${cpubar cpu6 6,80}
+C7:${alignr}${cpu cpu7}% ${cpubar cpu7 6,80}
+C8:${alignr}${cpu cpu8}% ${cpubar cpu8 6,80}
+
+# RAM
+MEM:${goto 60}$mem${alignr}$memperc% ${membar 6,80}
+SWP:${goto 60}$swap${alignr}$swapperc% ${swapbar 6,80}
+
+# Disk and Network
+/h${goto 60}${fs_used /home}${alignr}${fs_used_perc /home}% ${fs_bar 6,80 /home}
+/${goto 60}${fs_used /}${alignr}${fs_used_perc /}% ${fs_bar 6,80 /}
+${if_mounted /windows}/w${goto 60}${fs_used /windows}${alignr}${fs_used_perc /windows}% ${fs_bar 6,80 /windows}$endif
+${if_mounted /windows-data}/w-d${goto 60}${fs_used /windows-data}${alignr}${fs_used_perc /windows-data}% ${fs_bar 6,80 /windows-data}$endif
+
+/h:   ${diskio label:linux-home}${alignr}${voffset -7}${diskiograph label:linux-home 20,120 000000 edb951 -t}
+/:    ${diskio label:root}${alignr}${voffset -7}${diskiograph label:root 20,120 000000 edb951 -t}
+/w-d: ${diskio label:shared-data}${alignr}${voffset -7}${diskiograph label:shared-data 20,120 000000 edb951 -t}
+
+${downspeedgraph enp0s25 20,120 000000 edb951 -t} ${upspeedgraph enp0s25 20,120 000000 edb951 -t}
+D: ${downspeed enp0s25}${goto 145}U: ${upspeed enp0s25}
+]]
