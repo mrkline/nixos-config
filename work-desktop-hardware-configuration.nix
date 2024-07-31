@@ -22,7 +22,7 @@
       workBox = true;
       machineFiles = {
           ".config/i3/conkyrc".source = ./i3/conkyrc;
-          ".config/i3/config".source = ./i3/work-desktop-config;
+          ".config/i3/config".source = ./i3/config;
       };
   };
 
