@@ -3,6 +3,7 @@
 {
   fonts.packages = with pkgs; [
     dejavu_fonts
+    gyre-fonts
     jost
     mononoki
     noto-fonts
