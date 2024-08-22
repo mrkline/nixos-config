@@ -118,6 +118,9 @@ in { pkgs, ... }: {
     };
     home.file = ({
         ".cargo/config.toml".text = ''
+            [build]
+            rustflags = ["-C", "force-frame-pointers=true" ]
+
             [profile.dev]
             opt-level = 2
         '';
