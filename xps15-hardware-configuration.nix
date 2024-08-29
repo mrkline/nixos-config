@@ -62,12 +62,6 @@
       { device = "/dev/disk/by-uuid/C51A-2E92";
         fsType = "vfat";
       };
-
-    "/mnt/backed" =
-      { device = "/dev/disk/by-uuid/e481fdb1-06b5-4c8d-a42b-29939b57c070";
-        fsType = "btrfs";
-        options = [ "subvol=backed" "compress-force=zstd" ];
-      };
   };
 
   hardware = {
