@@ -332,8 +332,8 @@ in rec
           TIMELINE_MIN_AGE = "1800";
           TIMELINE_LIMIT_HOURLY = "8";
           TIMELINE_LIMIT_DAILY = "5";
-          TIMELIME_LIMIT_WEEKLY = "2";
-          TIMELINE_LIMIT_MONTHLY = "2";
+          TIMELIME_LIMIT_WEEKLY = "0";
+          TIMELINE_LIMIT_MONTHLY = "0";
           TIMELIME_LIMIT_YEARLY = "0";
         };
       };
