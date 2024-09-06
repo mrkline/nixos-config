@@ -17,7 +17,6 @@ in rec
       ./latex.nix
     ];
 
-  nixpkgs.config.allowBroken = true; # until haskellPackages.cbor-tool gets unmarked
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/a10c8092d5f82622be79ed4dd12289f72011f850.tar.gz"))
