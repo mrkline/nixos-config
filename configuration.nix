@@ -116,10 +116,11 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
-     hlint
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
+     unstable.ghc
+     unstable.hlint
      unstable.haskellPackages.cbor-tool
      unstable.haskellPackages.ghc-prof-flamegraph
      unstable.haskellPackages.hp2pretty
