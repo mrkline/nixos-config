@@ -156,6 +156,7 @@ in rec
      killall
      lsof
      man-pages
+     mdbook
      moreutils
      mosh
      msmtp
