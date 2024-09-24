@@ -390,6 +390,6 @@ in rec
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 80;
+    memoryPercent = 100;
   };
 }
