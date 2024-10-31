@@ -350,7 +350,6 @@ in rec
 
     printing.enable = true;
     openssh.enable = true; # Run OpenSSH
-    fstrim.enable = true;
 
     chrony.enable = true;
 
