@@ -140,4 +140,4 @@ bindsym Print exec xfce4-screenshooter -f
 bindsym Ctrl+Print exec xfce4-screenshooter
 
 # Set the wallpaper (everything else handled by xfce4 session mumbo jumbo)
-exec feh --bg-center --no-xinerama ~/.background-image
+exec feh --bg-fill --no-xinerama ~/.background-image
