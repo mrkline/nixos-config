@@ -64,7 +64,7 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
-    opengl = {
+    graphics = {
       extraPackages = with pkgs; [
         intel-media-driver
         # vaapi-intel-hybrid # older? Let's try i-m-d first
@@ -92,10 +92,10 @@
 
   swapDevices = [ ];
 
-  environment.sessionVariables = {
-      GDK_SCALE = "2.0";
-      GDK_DPI_SCALE = "0.5";
-  };
+  #environment.sessionVariables = {
+  #   GDK_SCALE = "2.0";
+  #   GDK_DPI_SCALE = "0.5";
+  #;
   services.xserver = {
     dpi = 200;
     # Everyone else is handled in XFCE DPI settings
