@@ -124,6 +124,7 @@ in { pkgs, ... }: {
             [profile.dev]
             opt-level = 2
         '';
+        ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/i3/conky".source = ./i3/conky;
         ".iftoprc".text = ''
