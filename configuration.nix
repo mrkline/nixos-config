@@ -68,9 +68,6 @@ in rec
   # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
 
-  # Enable sound.
-  sound.enable = true;
-
   # Everyone loves docs!
   documentation = {
     enable = true;
@@ -196,17 +193,17 @@ in rec
      crispy-doom
      element-desktop
      evince
+     file-roller
      filezilla
      gimp
-     gnome.file-roller
-     gnome.gnome-calculator
-     gnome.seahorse
+     gnome-calculator
      gnupg
      imagemagick
      libreoffice
      meld
      mpv
      pinentry-qt
+     seahorse
      spotify
      zathura
      zoom-us
@@ -382,7 +379,7 @@ in rec
 
   };
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   networking.firewall.enable = false;
 
