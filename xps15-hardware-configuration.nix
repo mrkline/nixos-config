@@ -28,6 +28,7 @@
           ".config/i3/config".source = ./i3/config;
       };
   };
+  nix.settings.trusted-users = [ "root" "mkline" ];
 
   boot = {
     loader = {

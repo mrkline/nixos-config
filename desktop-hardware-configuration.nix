@@ -25,6 +25,7 @@
           ".conkyrc".source = ./dotfiles/desktop-conkyrc;
       };
   };
+  nix.settings.trusted-users = [ "root" "mrkline" ];
 
   boot = {
     loader.grub = {

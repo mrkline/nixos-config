@@ -27,6 +27,7 @@
           ".config/i3/config".source = ./i3/laptop-hidpi-config;
       };
   };
+  nix.settings.trusted-users = [ "root" "mrkline" ];
 
   boot = {
     loader = {
