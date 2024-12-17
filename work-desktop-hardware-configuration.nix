@@ -47,8 +47,6 @@
     kernelModules = [ "kvm-intel" ];
     blacklistedKernelModules = [ "nouveau" ];
     extraModulePackages = [ ];
-    # The terminals are flaky with modesetting and the current hardware setup.
-    kernelParams = [ "nomodeset" ];
     # Make the Intel mobo the default sound card
     extraModprobeConfig = ''
       options snd slots=snd_hda_intel
@@ -71,6 +69,7 @@
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
+    nvidia.open = true;
   };
 
   networking.hostName = "kline-nixos-desktop"; # Define your hostname.
