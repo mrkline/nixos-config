@@ -119,6 +119,7 @@ in rec
      unstable.ghc
      unstable.hlint
      unstable.haskellPackages.cbor-tool
+     unstable.haskellPackages.eventlog2html
      unstable.haskellPackages.ghc-prof-flamegraph
      unstable.haskellPackages.hp2pretty
      unstable.haskellPackages.threadscope
