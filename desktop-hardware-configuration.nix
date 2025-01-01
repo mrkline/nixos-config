@@ -83,6 +83,7 @@
   hardware = {
     enableAllFirmware = true;
     cpu.amd.updateMicrocode = true;
+    nvidia.open = true;
   };
 
   networking.hostName = "mrkline-desktop";
