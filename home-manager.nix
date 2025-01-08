@@ -108,7 +108,6 @@ in { pkgs, ... }: {
         neovim = {
             enable = true;
             package = unstable.neovim-unwrapped;
-            plugins = [ unstable.vimPlugins.vim-plug ];
             extraConfig = builtins.readFile ./dotfiles/init.vim;
         };
         fzf = {
