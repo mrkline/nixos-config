@@ -24,6 +24,8 @@ in rec
   ];
 
   nix = {
+    # Newer versions are screwing up LFS and god knows what else
+    package = pkgs.nixVersions.nix_2_18;
     settings.auto-optimise-store = true;
     extraOptions = ''
         experimental-features = nix-command fetch-closure flakes
