@@ -134,6 +134,7 @@ in rec
      acpi
      awscli
      backblaze-b2
+     bat # cat clone for nvim-fzf-commands
      bintools
      binwalk
      calc
@@ -144,9 +145,13 @@ in rec
      dhcpcd
      dtc
      elfutils
+     eza
+     fd # find clone for nvim-fzf-commands
      file
      flamegraph
+     fzf
      ghostscript
+     git-filter-repo
      graphviz
      htop
      iftop
@@ -164,6 +169,7 @@ in rec
      mosh
      msmtp
      mutt
+     neovim-unwrapped
      nmap
      optipng
      par
@@ -174,6 +180,7 @@ in rec
      pv
      pwgen
      rename
+     ripgrep
      s-tui
      tinycbor
      tmux
@@ -184,14 +191,7 @@ in rec
      vmtouch
      wget
      zsh
-     unstable.bat # cat clone for nvim-fzf-commands
-     unstable.eza
-     unstable.fd # find clone for nvim-fzf-commands
      unstable.ffmpeg-full
-     unstable.fzf
-     unstable.git-filter-repo
-     unstable.neovim-unwrapped
-     unstable.ripgrep
      unstable.typst
      unstable.yt-dlp
 
