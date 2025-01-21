@@ -22,7 +22,7 @@ in rec
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/c65e91d4a33abc3bc4a892d3c5b5b378bad64ea1.tar.gz"))
+    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/2103fcb16359438d42141bac873ed2367a05cbe7.tar.gz"))
     (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
     (self: super: { curl = unfuckedCurl.curl; })
   ];
