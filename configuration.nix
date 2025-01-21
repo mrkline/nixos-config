@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
+let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
 in rec
 {
   imports =
