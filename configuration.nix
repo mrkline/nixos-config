@@ -4,9 +4,6 @@
 
 { config, pkgs, lib, ... }:
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
-    unfuckedCurl = (import (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/8515525ec37e086b55e5c84fc3e4e716ece73a80.tar.gz") {
-        config = { allowUnfree = true; };
-    }).pkgs;
 in rec
 {
   imports =
@@ -24,7 +21,6 @@ in rec
   nixpkgs.overlays = [
     (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/2103fcb16359438d42141bac873ed2367a05cbe7.tar.gz"))
     (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
-    (self: super: { curl = unfuckedCurl.curl; })
   ];
 
   nix = {
