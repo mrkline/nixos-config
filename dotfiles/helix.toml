@@ -1,0 +1,11 @@
+theme = "papercolor-light"
+
+[editor]
+auto-pairs = false  
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+
+[keys.insert]
+"C-[" = "normal_mode"

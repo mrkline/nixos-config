@@ -186,6 +186,7 @@ in rec
      wget
      zsh
      unstable.ffmpeg-full
+     unstable.helix
      unstable.typst
      unstable.yt-dlp
 
