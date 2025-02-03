@@ -1,7 +1,8 @@
 theme = "papercolor-light"
 
 [editor]
-auto-pairs = false  
+auto-pairs = false
+bufferline = "multiple"
 
 [editor.whitespace.render]
 space = "all"

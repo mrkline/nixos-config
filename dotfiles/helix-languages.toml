@@ -1,0 +1,2 @@
+[language-server.haskell-language-server]
+command = "haskell-language-server"
