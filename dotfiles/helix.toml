@@ -1,4 +1,4 @@
-theme = "papercolor-light"
+theme = "simpleton"
 
 [editor]
 auto-pairs = false

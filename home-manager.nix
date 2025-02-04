@@ -126,6 +126,7 @@ in { pkgs, ... }: {
         ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
         ".config/helix/config.toml".source = ./dotfiles/helix.toml;
         ".config/helix/languages.toml".source = ./dotfiles/helix-languages.toml;
+        ".config/helix/themes/simpleton.toml".source = ./dotfiles/helix-themes/simpleton.toml;
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/i3/conky".source = ./i3/conky;
         ".iftoprc".text = ''
