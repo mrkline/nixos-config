@@ -3,6 +3,7 @@ theme = "simpleton"
 [editor]
 auto-pairs = false
 bufferline = "multiple"
+popup-border = "all"
 
 [editor.whitespace.render]
 space = "all"

@@ -3,15 +3,21 @@
 "ui.selection" = { fg = "white", bg = "black" }
 "ui.selection.primary" = { fg = "white", bg = "light-blue" }
 
+"ui.bufferline" = { fg = "black", bg = "light-gray" }
+"ui.bufferline.active" = { fg = "white", bg = "light-blue", modifiers = ["bold"] }
+
 "ui.statusline" = { fg = "white", bg = "light-blue" }
 "ui.statusline.inactive" = { modifiers = ["dim"] }
 "ui.statusline.active" = { fg = "white", modifiers = ["bold"] }
 
+"ui.menu.selected" = { fg = "white", bg = "light-blue" }
+
+"ui.virtual.jump-label" = { fg = "blue" }
 "ui.virtual.ruler" = { bg = "light-gray" }
 "ui.virtual.whitespace" = { fg = "light-gray" }
 
-"error" = { fg = "light-red" }
-"warning" = { fg = "light-yellow" }
+"error" = { fg = "red" }
+"warning" = { fg = "yellow" }
 "info" = { fg = "light-blue" }
 
 "diff.plus" = { fg = "green" }
@@ -20,6 +26,7 @@
 
 "diagnostic.error".underline = { color = "red", style = "curl" }
 "diagnostic.warning".underline = { color = "yellow", style = "curl" }
+"diagnostic.info".underline = { color = "blue", style = "curl" }
 
 "comment" = { fg = "green" }
 "keyword" = { fg = "red", modifiers = ["bold", "dim"] }
