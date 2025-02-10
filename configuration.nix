@@ -113,6 +113,7 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
+     haskellPackages.threadscope
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
@@ -122,7 +123,6 @@ in rec
      unstable.haskellPackages.eventlog2html
      unstable.haskellPackages.ghc-prof-flamegraph
      unstable.haskellPackages.hp2pretty
-     unstable.haskellPackages.threadscope
      unstable.haskell-language-server
 
      # other CLIs, utils
