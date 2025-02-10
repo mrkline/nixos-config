@@ -8,6 +8,7 @@ popup-border = "all"
 [editor.whitespace.render]
 space = "all"
 tab = "all"
+newline = "all"
 
 [keys.insert]
 "C-[" = "normal_mode"
