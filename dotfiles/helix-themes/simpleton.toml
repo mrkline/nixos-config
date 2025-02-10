@@ -33,3 +33,5 @@
 "special" = { fg = "red", modifiers = ["bold"] }
 "operator" = { fg = "magenta", modifiers = ["bold", "dim"] }
 "type" = { fg = "light-blue", modifiers = ["bold"] }
+"constant" = { fg = "cyan" }
+"variable.builtin" = { fg = "cyan" }
