@@ -93,6 +93,7 @@ in rec
      # Nix fun
      cachix
      nix-index
+     nix-output-monitor
      nix-tree
 
      # disk stuff
