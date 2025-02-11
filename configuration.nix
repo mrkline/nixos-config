@@ -349,6 +349,7 @@ in rec
 
     printing.enable = true;
     openssh.enable = true; # Run OpenSSH
+    fstrim.enable = false; # Async discard bb
 
     chrony.enable = true;
 
