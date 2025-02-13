@@ -19,6 +19,7 @@
 "error" = { fg = "red" }
 "warning" = { fg = "yellow" }
 "info" = { fg = "light-blue" }
+"hint" = { fg = "magenta" }
 
 "diff.plus" = { fg = "green" }
 "diff.delta" = { fg = "yellow" }
@@ -27,6 +28,7 @@
 "diagnostic.error".underline = { color = "red", style = "curl" }
 "diagnostic.warning".underline = { color = "yellow", style = "curl" }
 "diagnostic.info".underline = { color = "blue", style = "curl" }
+"diagnostic.hint".underline = { color = "magenta", style = "line" }
 
 "comment" = { fg = "green" }
 "keyword" = { fg = "red", modifiers = ["bold", "dim"] }
