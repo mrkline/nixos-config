@@ -12,3 +12,5 @@ newline = "all"
 
 [keys.insert]
 "C-[" = "normal_mode"
+"C-j" = "open_below"
+"C-k" = "open_above"
