@@ -307,7 +307,6 @@ in rec
       (pkgs.writeTextDir "share/pipewire/pipewire.conf.d/44-multi-rates.conf" ''
         context.properties = {
           default.clock.allowed-rates = [ 44100 48000 ]
-          resample.quality = 10
         }
       '')
     ];
