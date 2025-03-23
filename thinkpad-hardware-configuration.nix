@@ -6,6 +6,7 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
+      ./desktop.nix
     ];
 
   users.users.mrkline = {

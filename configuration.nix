@@ -33,7 +33,6 @@ in rec
 
   boot = {
       devShmSize = "20%";
-      kernelModules = [ "sg" ];
       # NVIDIA drivers currently busted on stable 6.13:
       # kernelPackages = pkgs.linuxPackages_6_12;
       kernelPackages = unstable.linuxPackages_latest;
@@ -88,10 +87,6 @@ in rec
      compsize
      #cudatoolkit
 
-     # Optional firmware
-     alsa-firmware
-     alsa-utils
-
      # Nix fun
      cachix
      nix-index
@@ -99,7 +94,6 @@ in rec
      nix-tree
 
      # disk stuff
-     gparted
      parted
      snapper
 
@@ -115,7 +109,6 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
-     haskellPackages.threadscope
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
@@ -136,8 +129,6 @@ in rec
      binwalk
      calc
      cloc
-     codespell
-     colordiff
      curl
      dhcpcd
      dtc
@@ -152,6 +143,7 @@ in rec
      graphviz
      htop
      iftop
+     imagemagick
      inotify-tools
      iotop
      iperf3
@@ -192,52 +184,6 @@ in rec
      unstable.helix
      unstable.typst
      unstable.yt-dlp
-
-     # ...GUIs? Apps?
-     crispy-doom
-     element-desktop
-     evince
-     file-roller
-     filezilla
-     gimp
-     gnome-calculator
-     gnupg
-     imagemagick
-     libreoffice
-     meld
-     mpv
-     pinentry-qt
-     seahorse
-     spotify
-     zathura
-     zoom-us
-     unstable.google-chrome
-     unstable.firefox
-     unstable.discord
-     unstable.signal-desktop
-     unstable.slack
-
-     # desktop environment
-     alacritty
-     conky
-     feh
-     i3
-     i3lock
-     lxappearance
-     networkmanagerapplet
-     pango
-     pavucontrol
-     rofi
-     scrot
-     xclip
-     xfce.ristretto
-     xfce.thunar
-     xfce.tumbler
-     xfce.xfce4-clipman-plugin
-     xfce.xfce4-notifyd
-     xfce.xfce4-power-manager
-     xfce.xfce4-screenshooter
-
   ] ++ (builtins.attrValues pkgs.mrkline); # my crap
   environment.pathsToLink = [ "/share/zsh" ]; # zsh completions
   environment.sessionVariables = {
@@ -251,8 +197,6 @@ in rec
     # ditto for fd (colorized find)
     LS_COLORS = "";
   };
-
-  powerManagement.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -275,21 +219,11 @@ in rec
       startAgent = true;
       enableAskPassword = false;
     };
-    wireshark = {
-      enable = true;
-      package = pkgs.wireshark;
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
     };
   };
-
-  # GNOME, how we love thee
-  services.gnome.gnome-keyring.enable = true;
-  # In machine config!
-  security.pam.services.lightdm.enableGnomeKeyring = true;
-
 
   security = {
     sudo = {
@@ -299,27 +233,12 @@ in rec
     rtkit.enable = true;
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    configPackages = [
-      (pkgs.writeTextDir "share/pipewire/pipewire.conf.d/44-multi-rates.conf" ''
-        context.properties = {
-          default.clock.allowed-rates = [ 44100 48000 ]
-        }
-      '')
-    ];
-  };
-
   services = {
     avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
-
-    globalprotect.enable = true;
 
     # Snapper: Snapshot /home hourly
     snapper= {
@@ -342,48 +261,9 @@ in rec
       snapshotInterval = "hourly";
     };
 
-    picom = { # Use picom (compton fork) as the compositor
-      enable = true;
-      backend = "glx";
-      vSync = true;
-    };
-
-    printing.enable = true;
     openssh.enable = true; # Run OpenSSH
     fstrim.enable = false; # Async discard bb
-
-    chrony.enable = true;
-
-    displayManager.defaultSession = "xfce+i3";
-
-    xserver = {
-      enable = true;
-      autorun = true;
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-      };
-      desktopManager.wallpaper = {
-        combineScreens = false;
-        mode = "fill";
-      };
-
-      windowManager.i3.enable = true;
-      # Configure keymap in X11
-      xkb.layout = "us";
-    };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    libinput.enable = true;
-    libinput.touchpad.disableWhileTyping = true;
-
   };
-
-  hardware.graphics.enable = true;
 
   networking.firewall.enable = false;
 
