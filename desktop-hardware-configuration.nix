@@ -34,7 +34,7 @@
       enable = true;
       efiSupport = true;
       devices = [ "nodev" ];
-      configurationLimit = 10;
+      configurationLimit = 5;
       extraEntries = ''
         menuentry "Video games and Redmond spyware" {
           insmod part_gpt
