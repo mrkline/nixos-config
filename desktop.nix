@@ -17,7 +17,6 @@ in
 
      # ...GUIs? Apps?
      crispy-doom
-     element-desktop
      evince
      file-roller
      filezilla
