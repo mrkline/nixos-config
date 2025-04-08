@@ -1,0 +1,34 @@
+# black dark/light
+palette = 0=#2E3436
+palette = 8=#555753
+
+# red dark/light
+palette = 1=#990000
+palette = 9=#bf0000
+
+# green dark/light
+palette = 2=#006600
+palette = 10=#008000
+
+# yellow dark/light
+palette = 3=#b78727
+palette = 11=#d4af37
+
+# blue dark/light
+palette = 4=#0000ff
+palette = 12=#005f87
+
+# magenta dark/light
+palette = 5=#75507B
+palette = 13=#AD7FA8
+
+# cyan dark/light
+palette = 6=#408080
+palette = 14=#53a6a6
+
+# white dark/light
+palette = 7=#babdb9
+palette = 15=#EEEEEC
+
+background = #eeeeee
+foreground = #000000

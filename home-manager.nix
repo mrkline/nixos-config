@@ -124,6 +124,7 @@ in { pkgs, ... }: {
             opt-level = 2
         '';
         ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
+        ".config/ghostty/config".source = ./dotfiles/ghostty;
         ".config/helix/config.toml".source = ./dotfiles/helix.toml;
         ".config/helix/languages.toml".source = ./dotfiles/helix-languages.toml;
         ".config/helix/themes/simpleton.toml".source = ./dotfiles/helix-themes/simpleton.toml;
