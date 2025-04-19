@@ -32,3 +32,8 @@ palette = 15=#EEEEEC
 
 background = #eeeeee
 foreground = #000000
+
+# Not in this terminal.
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
