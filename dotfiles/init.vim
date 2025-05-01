@@ -1,14 +1,3 @@
-call plug#begin()
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'vijaymarupudi/nvim-fzf' " requires the nvim-fzf library
-Plug 'vijaymarupudi/nvim-fzf-commands'
-
-call plug#end()
-
 "" Plugin config:
 
 " We don't want per-filetype plugins running - they blow away omnifunc and

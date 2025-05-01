@@ -107,7 +107,14 @@ in { pkgs, ... }: {
         };
         neovim = {
             enable = true;
-            package = unstable.neovim-unwrapped;
+            plugins = with pkgs.vimPlugins; [
+                nvim-lspconfig
+                vim-airline
+                vim-airline-themes
+                vim-fugitive
+                nvim-fzf
+                nvim-fzf-commands
+                ];
             extraConfig = builtins.readFile ./dotfiles/init.vim;
         };
         fzf = {
