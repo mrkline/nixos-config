@@ -40,7 +40,7 @@ in { pkgs, ... }: {
                 # ...
                 rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
             };
-            initExtra = ''
+            initContent = ''
                 # Muh prompt:
                 export PS1='%F{red}%(?..[%?] )%f%F{green}%~%f $ '
                 export RPS1=""
