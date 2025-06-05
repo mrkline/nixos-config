@@ -238,6 +238,8 @@ in rec
       openFirewall = true;
     };
 
+    chrony.enable = true;
+
     # Snapper: Snapshot /home hourly
     snapper= {
       configs = {

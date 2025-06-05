@@ -75,8 +75,6 @@ in
   security.pam.services.lightdm.enableGnomeKeyring = true;
 
   services = {
-    chrony.enable = true;
-
     displayManager.defaultSession = "xfce+i3";
 
     picom = { # Use picom (compton fork) as the compositor
