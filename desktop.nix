@@ -72,7 +72,9 @@ in
   # GNOME, how we love thee
   services.gnome.gnome-keyring.enable = true;
   # In machine config!
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.lightdm-greeter.enableGnomeKeyring = true;
+
+  security.pam.services.i3lock.enable = true;
 
   services = {
     displayManager.defaultSession = "xfce+i3";
