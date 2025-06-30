@@ -98,7 +98,7 @@
   };
 
   hardware.graphics = {
-    extraPackages = with pkgs; [ intel-media-driver mesa.drivers ];
+    extraPackages = with pkgs; [ intel-media-driver mesa ];
   };
 
   swapDevices = [ ];
