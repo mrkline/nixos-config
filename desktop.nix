@@ -28,6 +28,7 @@ in
      meld
      mpv
      pinentry-qt
+     qdirstat
      seahorse
      spotify
      zathura
