@@ -94,6 +94,7 @@ in { pkgs, ... }: {
                     prune = "true";
                     writeCommitGraph = "true";
                 };
+                merge.conflictStyle = "zdiff3";
                 push = {
                     default = "current";
                     recurseSubmodules = "check";
