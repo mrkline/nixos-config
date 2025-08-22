@@ -33,9 +33,8 @@ in rec
 
   boot = {
       devShmSize = "20%";
-      # NVIDIA drivers currently busted on stable 6.13:
-      # kernelPackages = pkgs.linuxPackages_6_12;
-      kernelPackages = unstable.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = unstable.linuxPackages_latest;
       # MORE PREEMPTION FOR PREEMPTION GODS
       kernelParams = ["preempt=full"];
       kernel.sysctl = {
