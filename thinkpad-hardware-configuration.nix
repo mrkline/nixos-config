@@ -63,7 +63,6 @@
   };
 
   hardware = {
-    enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
     graphics = {
       extraPackages = with pkgs; [

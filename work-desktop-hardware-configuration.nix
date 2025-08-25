@@ -68,7 +68,6 @@
   };
 
   hardware = {
-    enableAllFirmware = true;
     cpu.intel.updateMicrocode = true;
     nvidia.open = true;
   };
