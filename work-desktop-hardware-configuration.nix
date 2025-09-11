@@ -69,7 +69,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    nvidia.open = true;
+    nvidia.open = false;
   };
 
   networking.hostName = "kline-nixos-desktop"; # Define your hostname.
