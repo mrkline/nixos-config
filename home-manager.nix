@@ -130,7 +130,14 @@ in { pkgs, ... }: {
 
             [profile.dev]
             opt-level = 2
-        '';
+        '' + (if workBox then ''
+            [registry]
+            default = "artifactory"
+            global-credential-providers = ["cargo:token"]
+
+            [registries.artifactory]
+            index = "sparse+https://artifactory.anduril.dev/artifactory/api/cargo/cargo/index/"
+        '' else "");
         ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
         ".config/ghostty/config".source = ./dotfiles/ghostty;
         ".config/helix/config.toml".source = ./dotfiles/helix.toml;
