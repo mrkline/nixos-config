@@ -139,6 +139,7 @@ in rec
      flamegraph
      fzf
      ghostscript
+     ghostty
      git-filter-repo
      graphviz
      htop
@@ -181,7 +182,6 @@ in rec
      wget
      zsh
      unstable.ffmpeg-full
-     unstable.ghostty
      unstable.helix
      unstable.typst
      unstable.yt-dlp
