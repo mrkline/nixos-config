@@ -41,6 +41,17 @@
     };
   };
 
+  # See configuration.nix,
+  # https://github.com/utmapp/UTM/issues/4644#issuecomment-2900887629
+  services.chrony = {
+    extraConfig = ''
+      refclock RTC /dev/rtc0:utc
+      makestep 1 -1
+    '';
+    # We're syncing _from_ the RTC, not writing to it.
+    enableRTCTrimming = false;
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/992d0224-d866-41a6-91a5-0261ac75e408";
       fsType = "btrfs";

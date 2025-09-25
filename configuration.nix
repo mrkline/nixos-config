@@ -238,7 +238,14 @@ in rec
       openFirewall = true;
     };
 
-    chrony.enable = true;
+    chrony = {
+      enable = true;
+      # For UTM: chrony 4.7+ allows to sync with the RTC,
+      # which MacOS keeps synced with its own time.
+      # https://github.com/utmapp/UTM/issues/4644#issuecomment-2900887629
+      package = unstable.pkgs.chrony;
+    };
+
 
     # Snapper: Snapshot /home hourly
     snapper= {
