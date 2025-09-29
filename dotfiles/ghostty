@@ -33,6 +33,8 @@ palette = 15=#EEEEEC
 background = #eeeeee
 foreground = #000000
 
+font-family = mononoki
+
 # Not in this terminal.
 font-feature = -calt
 font-feature = -dlig
