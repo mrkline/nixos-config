@@ -100,6 +100,7 @@ in
     };
 
     printing.enable = true;
+    printing.package = unstable.pkgs.cups;
 
     xserver = {
       enable = true;
