@@ -60,50 +60,52 @@ in { pkgs, ... }: {
         };
         git = {
             enable = true;
-            userName = "Matt Kline";
-            userEmail = if workBox then "mkline@anduril.com" else "matt@bitbashing.io";
             lfs.enable = true;
-            aliases = {
-                graph = "log --graph --oneline --decorate";
-                ff = "merge --ff-only";
-                zip = "archive --format=zip";
-                dt = "difftool";
-                ga = "log --oneline --decorate --graph --all";
-                gr = "log --oneline --decorate --graph";
-                co = "checkout";
-                ci = "commit";
-                st = "status";
-                df = "diff";
-                cam = "commit --amend";
-                append = "commit --amend --no-edit";
-            };
-            extraConfig = {
-                core = {
-                    autocrlf = false;
-                    compression = 0;
+            settings = {
+                user.name = "Matt Kline";
+                user.email = if workBox then "mkline@anduril.com" else "matt@bitbashing.io";
+                alias = {
+                    graph = "log --graph --oneline --decorate";
+                    ff = "merge --ff-only";
+                    zip = "archive --format=zip";
+                    dt = "difftool";
+                    ga = "log --oneline --decorate --graph --all";
+                    gr = "log --oneline --decorate --graph";
+                    co = "checkout";
+                    ci = "commit";
+                    st = "status";
+                    df = "diff";
+                    cam = "commit --amend";
+                    append = "commit --amend --no-edit";
                 };
-                color = {
-                    ui = "auto";
+                extraConfig = {
+                    core = {
+                        autocrlf = false;
+                        compression = 0;
+                    };
+                    color = {
+                        ui = "auto";
+                    };
+                    diff = {
+                        tool = "meld";
+                        algorithm = "patience";
+                        submodule = "short";
+                    };
+                    fetch = {
+                        prune = "true";
+                        writeCommitGraph = "true";
+                    };
+                    merge.conflictStyle = "zdiff3";
+                    push = {
+                        default = "current";
+                        recurseSubmodules = "check";
+                    };
+                    gc = {
+                        autoDetach = false;
+                        auto = 0;
+                    };
+                    init.defaultBranch = "master";
                 };
-                diff = {
-                    tool = "meld";
-                    algorithm = "patience";
-                    submodule = "short";
-                };
-                fetch = {
-                    prune = "true";
-                    writeCommitGraph = "true";
-                };
-                merge.conflictStyle = "zdiff3";
-                push = {
-                    default = "current";
-                    recurseSubmodules = "check";
-                };
-                gc = {
-                    autoDetach = false;
-                    auto = 0;
-                };
-                init.defaultBranch = "master";
             };
         };
         neovim = {

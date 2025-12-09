@@ -14,7 +14,6 @@ in rec
       ./bfq.nix
       ./fonts.nix
       ./haskell.nix
-      ./latex.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -49,7 +48,7 @@ in rec
         # which gives us headroom to avoid freezing.
         "vm.admin_reserve_kbytes" = 524288;
       };
-      supportedFilesystems = [ "bcachefs" "ntfs" ];
+      supportedFilesystems = [ "ntfs" ];
       tmp.useTmpfs = true; # tmpfs on /tmp please
       tmp.tmpfsSize = "100%";
   };
@@ -81,7 +80,6 @@ in rec
      # Kernel-dependent stuff
      boot.kernelPackages.bcc
      boot.kernelPackages.bpftrace
-     boot.kernelPackages.perf
      btrfs-progs
      compsize
      #cudatoolkit
@@ -165,6 +163,7 @@ in rec
      par
      pass
      patchelf
+     perf
      picocom
      pstree
      pv

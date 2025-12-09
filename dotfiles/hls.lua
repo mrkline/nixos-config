@@ -8,12 +8,12 @@ end
 
 hls = whichHls()
 if hls ~= "" then
-    require('lspconfig').hls.setup{
+    vim.lsp.config('hls', {
         cmd = { hls, "--lsp" },
         settings = {
             haskell = {
                 hlintOn = true
             }
         }
-    }
+    })
 end

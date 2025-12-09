@@ -71,7 +71,11 @@ in
   };
 
   # GNOME, how we love thee
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome = {
+    gnome-keyring.enable = true;
+    gcr-ssh-agent.enable = false;
+  };
+
   # In machine config!
   security.pam.services.lightdm-greeter.enableGnomeKeyring = true;
 
