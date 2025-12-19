@@ -1,3 +1,6 @@
+# Plain please
+window-decoration = server
+
 # black dark/light
 palette = 0=#2E3436
 palette = 8=#555753
@@ -30,12 +33,19 @@ palette = 14=#53a6a6
 palette = 7=#babdb9
 palette = 15=#EEEEEC
 
-background = #eeeeee
+background = #f0f0f0
 foreground = #000000
 
-font-family = mononoki
+font-family = Berkeley Mono
+font-style = Regular
+font-style-bold = SemiBold
+font-style-italic = Oblique
+font-style-bold-italic = SemiBold Oblique
+font-size = 12
 
 # Not in this terminal.
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
+
+mouse-scroll-multiplier = 5

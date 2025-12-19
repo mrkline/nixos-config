@@ -9,7 +9,7 @@ for_window [class=".*"] title_format "<span font_weight='500' font_features='ss0
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Ctrl+q kill
