@@ -109,6 +109,7 @@ in rec
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
+     unstable.cabal-install
      unstable.ghc
      unstable.hlint
      unstable.haskellPackages.cbor-tool
