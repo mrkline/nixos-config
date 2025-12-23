@@ -1,6 +1,9 @@
 # Plain please
 window-decoration = server
 
+# https://github.com/ghostty-org/ghostty/discussions/3224
+async-backend = epoll
+
 # black dark/light
 palette = 0=#2E3436
 palette = 8=#555753
