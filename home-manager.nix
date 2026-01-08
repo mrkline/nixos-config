@@ -78,34 +78,32 @@ in { pkgs, ... }: {
                     cam = "commit --amend";
                     append = "commit --amend --no-edit";
                 };
-                extraConfig = {
-                    core = {
-                        autocrlf = false;
-                        compression = 0;
-                    };
-                    color = {
-                        ui = "auto";
-                    };
-                    diff = {
-                        tool = "meld";
-                        algorithm = "patience";
-                        submodule = "short";
-                    };
-                    fetch = {
-                        prune = "true";
-                        writeCommitGraph = "true";
-                    };
-                    merge.conflictStyle = "zdiff3";
-                    push = {
-                        default = "current";
-                        recurseSubmodules = "check";
-                    };
-                    gc = {
-                        autoDetach = false;
-                        auto = 0;
-                    };
-                    init.defaultBranch = "master";
+                core = {
+                    autocrlf = false;
+                    compression = 0;
                 };
+                color = {
+                    ui = "auto";
+                };
+                diff = {
+                    tool = "meld";
+                    algorithm = "patience";
+                    submodule = "short";
+                };
+                fetch = {
+                    prune = "true";
+                    writeCommitGraph = "true";
+                };
+                merge.conflictStyle = "zdiff3";
+                push = {
+                    default = "current";
+                    recurseSubmodules = "check";
+                };
+                gc = {
+                    autoDetach = false;
+                    auto = 0;
+                };
+                init.defaultBranch = "master";
             };
         };
         neovim = {
