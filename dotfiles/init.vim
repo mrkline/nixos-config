@@ -11,6 +11,7 @@ noremap <leader>a :lua vim.lsp.buf.code_action()<CR>
 noremap <leader>D :lua vim.lsp.buf.declaration()<CR>
 noremap <leader>d :lua vim.lsp.buf.definition()<CR>
 noremap <leader>r :lua vim.lsp.buf.references()<CR>
+noremap <leader>e :lua vim.diagnostic.open_float()<CR>
 set omnifunc=v:lua.vim.lsp.omnifunc
 
 " Airline's mixed indentation messages are often wrong. Turn them off
