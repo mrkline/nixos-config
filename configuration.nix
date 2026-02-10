@@ -121,7 +121,7 @@ in rec
 
      # other CLIs, utils
      acpi
-     awscli
+     awscli2
      backblaze-b2
      bat # cat clone for nvim-fzf-commands
      bintools
@@ -181,6 +181,7 @@ in rec
      vmtouch
      wget
      zsh
+     unstable.claude-code
      unstable.ffmpeg-full
      unstable.helix
      unstable.typst
