@@ -57,12 +57,8 @@ in rec
   # Set your time zone.
   time.timeZone = "US/Pacific";
 
-  networking = {
-    nameservers = [ "8.8.8.8" ];
-    networkmanager = {
-      enable = true;
-    };
-  };
+  networking.nameservers = lib.mkIf (!config.wsl.enable) [ "8.8.8.8" ];
+  networking.networkmanager.enable = lib.mkIf (!config.wsl.enable) true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
