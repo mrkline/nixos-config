@@ -12,6 +12,7 @@ in rec
       ./hardware-configuration.nix
       ./bbr.nix
       ./bfq.nix
+      ./claude.nix
       ./fonts.nix
       ./haskell.nix
     ];
