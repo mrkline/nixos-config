@@ -4,6 +4,7 @@
 
 { config, pkgs, lib, ... }:
 let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
+    isWsl = config.wsl.enable or false;
 in rec
 {
   imports =
@@ -57,8 +58,8 @@ in rec
   # Set your time zone.
   time.timeZone = "US/Pacific";
 
-  networking.nameservers = lib.mkIf (!config.wsl.enable) [ "8.8.8.8" ];
-  networking.networkmanager.enable = lib.mkIf (!config.wsl.enable) true;
+  networking.nameservers = lib.mkIf (!isWsl) [ "8.8.8.8" ];
+  networking.networkmanager.enable = lib.mkIf (!isWsl) true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "C.UTF-8";
