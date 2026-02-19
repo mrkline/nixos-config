@@ -139,6 +139,7 @@ in rec
      ghostty
      git-filter-repo
      graphviz
+     helix
      htop
      iftop
      imagemagick
@@ -181,7 +182,6 @@ in rec
      zsh
      unstable.claude-code
      unstable.ffmpeg-full
-     unstable.helix
      unstable.typst
      unstable.yt-dlp
   ] ++ (builtins.attrValues pkgs.mrkline); # my crap
