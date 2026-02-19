@@ -1,6 +1,4 @@
-{ config, pkgs, lib, ... }:
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
-in
+{ config, pkgs, lib, unstable, ... }:
 {
   boot = {
       kernelModules = [ "sg" ];

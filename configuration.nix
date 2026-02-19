@@ -2,15 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; }; }).pkgs;
-    isWsl = config.wsl.enable or false;
+{ config, pkgs, lib, unstable, ... }:
+let isWsl = config.wsl.enable or false;
 in rec
 {
   imports =
     [
-      <home-manager/nixos>
-      ./hardware-configuration.nix
       ./bbr.nix
       ./bfq.nix
       ./claude.nix
@@ -20,7 +17,6 @@ in rec
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/755d3669699a7c62aef35af187d75dc2728cfd85.tar.gz"))
     (self: super: { mrkline = import ./overlay/packages.nix { inherit (self) config pkgs lib; }; })
   ];
 

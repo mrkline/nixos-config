@@ -1,6 +1,5 @@
 { workBox, machineFiles }:
-let unstable = (import <nixos-unstable> { config = { allowUnfree = true; allowBroken = true; }; }).pkgs;
-in { pkgs, ... }: {
+{ pkgs, ... }: {
     programs = {
         zsh = {
             enable = true;
