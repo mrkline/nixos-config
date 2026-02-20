@@ -33,6 +33,7 @@
         nixos-wsl.nixosModules.default
         { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
         ./configuration.nix
+        ./local.nix
         machineModule
       ];
     };
