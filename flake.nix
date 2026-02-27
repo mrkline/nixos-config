@@ -3,6 +3,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+      #inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, rust-overlay, nixos-wsl }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, determinate, home-manager, rust-overlay, nixos-wsl }:
   let
     mkSystem = machineModule: nixpkgs.lib.nixosSystem {
       modules = [
@@ -29,6 +34,7 @@
             config.allowUnfree = true;
           };
         })
+        determinate.nixosModules.default
         home-manager.nixosModules.home-manager
         nixos-wsl.nixosModules.default
         { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
