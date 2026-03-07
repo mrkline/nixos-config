@@ -6,7 +6,6 @@
 let cs = {
   "\$schema" = "https://json.schemastore.org/claude-code-settings.json";
   permissions = {
-    defaultMode = "plan";
     deny = [
       "Bash(git *)"
       "Read(~/.ssh)"
@@ -45,6 +44,7 @@ let cs = {
         "Supposing"
         "Transmogrifying"
         "Traversing"
+        "Wading"
         "Wandering"
         "Winding"
     ];
