@@ -77,7 +77,6 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   services = {
-    thinkfan.enable = true;
     tlp = {
       enable = true;
       settings = {
