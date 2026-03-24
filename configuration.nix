@@ -12,7 +12,6 @@ in rec
       ./bfq.nix
       ./claude.nix
       ./fonts.nix
-      ./haskell.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
