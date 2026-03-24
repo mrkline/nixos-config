@@ -28,6 +28,10 @@
   let
     mkSystem = machineModule: nixpkgs.lib.nixosSystem {
       modules = [
+        {
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.nixPath = [ "nixpkgs=flake:nixpkgs" ];
+        }
         ({ pkgs, ... }: {
           _module.args.unstable = import nixpkgs-unstable {
             system = pkgs.stdenv.hostPlatform.system;
