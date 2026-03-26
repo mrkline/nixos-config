@@ -57,4 +57,15 @@ in
     text = builtins.toJSON cs;
     mode = "0444";
   };
+  environment.etc."claude-code/CLAUDE.md" = {
+    text = ''
+        You are running on a NixOS system.
+        Programs and libraries are unlikely to be in standard Linux FHS locations.
+        Do not search for them in `/nix/store/`, but instead prompt me if you cannot
+        find what you're looking for - it is likely that I have forgotten to add it
+        to the project's `shell.nix`. Whatever a project needs to build should be found
+        in the `nix-shell`/`nix develop` environment that Claude Code is run inside of.
+    '';
+    mode = "0444";
+  };
 }
