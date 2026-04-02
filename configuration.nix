@@ -67,6 +67,14 @@ in rec
     man.enable = true;
   };
 
+  # Fix cachix auth sources when on dix
+  # lol this is so roundabout - setting this causes detsys nix to place these values
+  # in its own /nix/var/determinate/netrc
+  environment.etc."determinate/config.json" = {
+      text = ''{"authentication":{"additionalNetrcSources":["/etc/nix/netrc"]}}'';
+      mode = "0444";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
