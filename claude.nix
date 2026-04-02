@@ -6,8 +6,17 @@
 let cs = {
   "\$schema" = "https://json.schemastore.org/claude-code-settings.json";
   permissions = {
+    allow = [
+      "Bash(git diff *)"
+      "Bash(git log *)"
+      "Bash(git ls-tree *)"
+      "Bash(git show *)"
+    ];
     deny = [
-      "Bash(git *)"
+      "Bash(git commit *)"
+      "Bash(git pull *)"
+      "Bash(git push *)"
+      "Bash(git remote *)"
       "Read(~/.ssh)"
       "Read(~/.zsh_history)"
     ];
