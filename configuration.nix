@@ -128,6 +128,7 @@ in rec
      bintools
      binwalk
      calc
+     claude-code
      cloc
      curl
      dhcpcd
@@ -183,7 +184,6 @@ in rec
      vmtouch
      wget
      zsh
-     unstable.claude-code
      unstable.ffmpeg-full
      unstable.typst
      unstable.yt-dlp

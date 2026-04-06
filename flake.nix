@@ -13,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude-overlay = {
+      url = "github:ryoppippi/nix-claude-code";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay/475826b105eb52f39bd3281f60c052299e64d085";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, determinate, home-manager, rust-overlay, nixos-wsl }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, determinate, home-manager, claude-overlay, rust-overlay, nixos-wsl }:
   let
     mkSystem = machineModule: nixpkgs.lib.nixosSystem {
       modules = [
@@ -41,7 +46,11 @@
         determinate.nixosModules.default
         home-manager.nixosModules.home-manager
         nixos-wsl.nixosModules.default
-        { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
+        { nixpkgs.overlays = [
+            rust-overlay.overlays.default
+            claude-overlay.overlays.default
+          ];
+        }
         ./configuration.nix
         ./local.nix
         machineModule
