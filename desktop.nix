@@ -14,8 +14,8 @@
 
 
      # ...GUIs? Apps?
+     cinny-desktop
      crispy-doom
-     element-desktop
      evince
      file-roller
      filezilla
