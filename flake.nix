@@ -3,6 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     determinate = {
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -29,9 +31,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, determinate, home-manager, claude-overlay, rust-overlay, nixos-wsl }:
+  outputs = {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      nixos-hardware,
+      determinate,
+      home-manager,
+      claude-overlay,
+      rust-overlay,
+      nixos-wsl
+  }:
   let
     mkSystem = machineModule: nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit nixos-hardware; };
       modules = [
         {
             nix.registry.nixpkgs.flake = nixpkgs;
