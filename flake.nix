@@ -72,7 +72,6 @@
   in {
     nixosConfigurations = {
       thinkpad     = mkSystem ./thinkpad-hardware-configuration.nix;
-      desktop      = mkSystem ./desktop-hardware-configuration.nix;
       work-desktop = mkSystem ./work-desktop-hardware-configuration.nix;
       xps15        = mkSystem ./xps15-hardware-configuration.nix;
       utm          = mkSystem ./utm-hardware-configuration.nix;
