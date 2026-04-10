@@ -1,0 +1,22 @@
+* {
+    font-family: "Jost*";
+    font-size: 14pt;
+}
+
+window#waybar {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#workspaces button {
+    color: #ffffff;
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    background-color: #333333;
+}
+
+#cpu, #memory, #battery, #clock, #tray {
+    padding: 0 10px;
+}

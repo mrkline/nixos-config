@@ -26,8 +26,8 @@
   home-manager.users.mrkline = import ./home-manager.nix {
       workBox = false;
       machineFiles = {
-          ".config/i3/conkyrc".source = ./i3/conkyrc;
-          ".config/i3/config".source = ./i3/laptop-hidpi-config;
+          ".config/sway/config".source = ./sway/thinkpad-config;
+          ".config/waybar/style.css".source = ./sway/waybar-style-hidpi.css;
       };
   };
   nix.settings.trusted-users = [ "root" "mrkline" ];
@@ -80,15 +80,6 @@
   };
 
   swapDevices = [ ];
-
-  #environment.sessionVariables = {
-  #   GDK_SCALE = "2.0";
-  #   GDK_DPI_SCALE = "0.5";
-  #;
-  services.xserver = {
-    dpi = 200;
-    # Everyone else is handled in XFCE DPI settings
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

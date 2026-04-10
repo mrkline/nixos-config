@@ -1,0 +1,139 @@
+set $mod Mod1
+
+# Font for window titles.
+font pango:Jost* 12
+for_window [app_id=".*"] title_format "<span font_weight='500' font_features='ss01'>%title</span>"
+for_window [class=".*"] title_format "<span font_weight='500' font_features='ss01'>%title</span>"
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod normal
+
+# start a terminal
+bindsym $mod+Return exec ghostty
+
+# kill focused window
+bindsym $mod+Ctrl+q kill
+
+# Use rofi as a launcher
+bindsym $mod+d exec rofi -show run -font 'Jost* 12' -lines 5
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Ctrl+h move left
+bindsym $mod+Ctrl+j move down
+bindsym $mod+Ctrl+k move up
+bindsym $mod+Ctrl+l move right
+
+bindsym $mod+Ctrl+Left workspace prev_on_output
+bindsym $mod+Ctrl+Right workspace next_on_output
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+e layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+w layout toggle split
+
+# create horizontal and vertical splits
+bindsym $mod+s split h
+bindsym $mod+v split v
+
+# toggle tiling / floating
+bindsym $mod+Ctrl+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace 1
+bindsym $mod+Ctrl+2 move container to workspace 2
+bindsym $mod+Ctrl+3 move container to workspace 3
+bindsym $mod+Ctrl+4 move container to workspace 4
+bindsym $mod+Ctrl+5 move container to workspace 5
+bindsym $mod+Ctrl+6 move container to workspace 6
+bindsym $mod+Ctrl+7 move container to workspace 7
+bindsym $mod+Ctrl+8 move container to workspace 8
+bindsym $mod+Ctrl+9 move container to workspace 9
+bindsym $mod+Ctrl+0 move container to workspace 10
+
+# ...and launch them with a matching key
+bindsym mod4+9 exec pavucontrol
+
+# Lock the screen with Super-L
+bindsym mod4+l exec lock.sh
+
+# Brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Volume stuff
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Force some things to float that don't tile well
+for_window [title="Calculator"] floating enable
+
+# reload the configuration file
+bindsym $mod+Ctrl+c reload
+# exit sway
+bindsym $mod+Ctrl+BackSpace exec swaynag -t warning -m 'Exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+    swaybar_command waybar
+}
+
+# Pass environment to D-Bus/systemd so xdg-desktop-portal and gnome-keyring work
+exec dbus-update-activation-environment --systemd --all
+
+# Tray applets
+exec nm-applet --indicator
+
+# Screenshots
+bindsym Print exec grim
+bindsym Ctrl+Print exec grim -g "$(slurp)"
+
+# Wallpaper
+output * bg ~/.background-image fill
+
+# Touchpad (ignored if no touchpad present)
+input type:touchpad {
+    tap enabled
+    dwt enabled
+}

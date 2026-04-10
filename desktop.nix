@@ -39,30 +39,36 @@
      unstable.slack
 
      # desktop environment
+     adwaita-icon-theme
      alacritty
-     conky
-     feh
-     i3
-     i3lock
-     lxappearance
+     brightnessctl
+     grim
      networkmanagerapplet
      pango
      pavucontrol
      rofi
-     scrot
-     xclip
+     slurp
+     swaylock
+     waybar
+     wl-clipboard
      xfce.ristretto
      xfce.thunar
      xfce.tumbler
-     xfce.xfce4-clipman-plugin
      xfce.xfce4-notifyd
-     xfce.xfce4-power-manager
-     xfce.xfce4-screenshooter
   ];
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
 
   powerManagement.enable = true;
 
   programs = {
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
@@ -75,18 +81,24 @@
     gcr-ssh-agent.enable = false;
   };
 
-  # In machine config!
-  security.pam.services.lightdm-greeter.enableGnomeKeyring = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
-  security.pam.services.i3lock.enable = true;
+  security.pam.services.swaylock = {};
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   services = {
-    displayManager.defaultSession = "xfce+i3";
-
-    picom = { # Use picom (compton fork) as the compositor
+    greetd = {
       enable = true;
-      backend = "glx";
-      vSync = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
+          user = "greeter";
+        };
+      };
     };
 
     pipewire = {
@@ -104,31 +116,6 @@
 
     printing.enable = true;
     printing.package = unstable.pkgs.cups;
-
-    xserver = {
-      enable = true;
-      autorun = true;
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-      };
-      desktopManager.wallpaper = {
-        combineScreens = false;
-        mode = "fill";
-      };
-
-      windowManager.i3.enable = true;
-      # Configure keymap in X11
-      xkb.layout = "us";
-    };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    libinput.enable = true;
-    libinput.touchpad.disableWhileTyping = true;
   };
 
   hardware.graphics.enable = true;

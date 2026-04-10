@@ -136,7 +136,7 @@
         ".config/helix/languages.toml".source = ./dotfiles/helix-languages.toml;
         ".config/helix/themes/simpleton.toml".source = ./dotfiles/helix-themes/simpleton.toml;
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
-        ".config/i3/conky".source = ./i3/conky;
+        ".config/waybar/config".source = ./sway/waybar-config;
         ".iftoprc".text = ''
             line-display: one-line-both
             show-bars: no

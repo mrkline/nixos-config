@@ -1,0 +1,28 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-right": ["cpu", "memory", "battery", "clock#utc", "clock", "tray"],
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "interval": 5
+    },
+    "memory": {
+        "format": "MEM: {percentage}%",
+        "interval": 5
+    },
+    "battery": {
+        "format": "BAT: {capacity}%",
+        "interval": 30
+    },
+    "clock#utc": {
+        "format": "Z: {:%a, %F %H:%M}",
+        "timezone": "UTC"
+    },
+    "clock": {
+        "format": "{:%a, %F %H:%M}"
+    },
+    "tray": {
+        "spacing": 10
+    }
+}

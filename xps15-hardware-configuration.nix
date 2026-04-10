@@ -27,8 +27,8 @@
   home-manager.users.mkline = import ./home-manager.nix {
       workBox = true;
       machineFiles = {
-          ".config/i3/conkyrc".source = ./i3/conkyrc;
-          ".config/i3/config".source = ./i3/config;
+          ".config/sway/config".source = ./sway/config;
+          ".config/waybar/style.css".source = ./sway/waybar-style.css;
       };
   };
   nix.settings.trusted-users = [ "root" "mkline" ];
