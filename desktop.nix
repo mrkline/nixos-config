@@ -45,7 +45,7 @@
      grim
      networkmanagerapplet
      pango
-     pavucontrol
+     pwvucontrol
      rofi
      slurp
      swaylock
