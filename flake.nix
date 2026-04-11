@@ -5,11 +5,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    determinate = {
-      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +31,6 @@
       nixpkgs,
       nixpkgs-unstable,
       nixos-hardware,
-      determinate,
       home-manager,
       claude-overlay,
       rust-overlay,
@@ -56,7 +50,6 @@
             config.allowUnfree = true;
           };
         })
-        determinate.nixosModules.default
         home-manager.nixosModules.home-manager
         nixos-wsl.nixosModules.default
         { nixpkgs.overlays = [
