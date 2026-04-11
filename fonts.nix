@@ -16,6 +16,6 @@
     enable = true;
     antialias = true;
     hinting.enable = true;
-    defaultFonts.monospace = [ "mononoki" ];
+    defaultFonts.monospace = [ "Berkeley Mono" ];
   };
 }

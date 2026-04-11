@@ -32,7 +32,7 @@ conky.config = {
 	-- Font --
 	use_xft = true,
 	xftalpha = 1,
-	font = 'mononoki:size=12'
+	font = 'Berkeley Mono:size=12'
 }
 
 conky.text = [[
