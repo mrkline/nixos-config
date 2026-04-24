@@ -128,8 +128,8 @@ exec dbus-update-activation-environment --systemd --all
 exec nm-applet --indicator
 
 # Screenshots
-bindsym Print exec grim
-bindsym Ctrl+Print exec grim -g "$(slurp)"
+bindsym Print exec grim - | wl-copy -t image/png
+bindsym Ctrl+Print exec grim -g "$(slurp)" - | wl-copy -t image/png
 
 # Touchpad
 input type:touchpad {
