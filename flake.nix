@@ -11,7 +11,7 @@
     };
 
     claude-overlay = {
-      url = "github:ryoppippi/nix-claude-code";
+      url = "github:ryoppippi/nix-claude-code/59bb590492ee6af9eeb0d8e9e8f6a73140aec761";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
