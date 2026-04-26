@@ -55,6 +55,8 @@
 
                 zle -N bash-backward-kill-word
                 bindkey '^W' bash-backward-kill-word
+
+                source <(COMPLETE=zsh jj)
             '';
         };
         git = {
@@ -135,6 +137,13 @@
         ".config/helix/config.toml".source = ./dotfiles/helix.toml;
         ".config/helix/languages.toml".source = ./dotfiles/helix-languages.toml;
         ".config/helix/themes/simpleton.toml".source = ./dotfiles/helix-themes/simpleton.toml;
+        # Too lazy to plumb unstable in, so:
+        # (see zsh config above also)
+        ".config/jj/config.toml".text = ''
+            [user]
+            name = "Matt Kline"
+            email = "${if workBox then "mkline@anduril.com" else "matt@bitbashing.io"}"
+        '';
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/waybar/config".source = ./sway/waybar-config;
         ".iftoprc".text = ''
