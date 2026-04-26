@@ -105,6 +105,7 @@ in rec
      unstable.cabal-install
      unstable.ghc
      unstable.hlint
+     unstable.jujutsu
      unstable.haskellPackages.cbor-tool
      unstable.haskellPackages.eventlog2html
      unstable.haskellPackages.ghc-events
