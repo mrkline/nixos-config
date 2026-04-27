@@ -176,10 +176,10 @@ in rec
      viu
      vmtouch
      wget
+     yt-dlp
      zsh
      unstable.ffmpeg-full
      unstable.typst
-     unstable.yt-dlp
   ] ++ (builtins.attrValues pkgs.mrkline); # my crap
   environment.pathsToLink = [ "/share/zsh" ]; # zsh completions
   environment.sessionVariables = {
