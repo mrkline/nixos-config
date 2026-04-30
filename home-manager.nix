@@ -143,6 +143,17 @@
             [user]
             name = "Matt Kline"
             email = "${if workBox then "mkline@anduril.com" else "matt@bitbashing.io"}"
+
+            [ui]
+            conflict-marker-style = "git"
+            diff-formatter = ":git"
+
+            [aliases]
+            blame = ["file", "annotate"]
+            df = ["diff"]
+            l = ["log"]
+            la = ["log", "-r", "::"]
+            lb = ["log", "-r", "trunk()..@"]
         '';
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/waybar/config".source = ./sway/waybar-config;
