@@ -178,6 +178,7 @@ in rec
      wget
      yt-dlp
      zsh
+     unstable.codex
      unstable.ffmpeg-full
      unstable.typst
   ] ++ (builtins.attrValues pkgs.mrkline); # my crap

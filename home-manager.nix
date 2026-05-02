@@ -132,6 +132,10 @@
             [profile.dev]
             opt-level = 2
         '';
+        ".codex/AGENTS.md".text = ''
+            Whenever there are multiple reasonable approaches to a problem,
+            prompt the user instead of choosing one.
+        '';
         ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;
         ".config/ghostty/config".source = ./dotfiles/ghostty;
         ".config/helix/config.toml".source = ./dotfiles/helix.toml;
