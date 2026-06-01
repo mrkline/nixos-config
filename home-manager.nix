@@ -118,6 +118,8 @@
                 nvim-fzf-commands
                 ];
             extraConfig = builtins.readFile ./dotfiles/init.vim;
+            withRuby = false;
+            withPython3 = false;
         };
         fzf = {
             enable = true;

@@ -51,10 +51,10 @@
      swaylock
      waybar
      wl-clipboard
-     xfce.ristretto
-     xfce.thunar
-     xfce.tumbler
-     xfce.xfce4-notifyd
+     ristretto
+     thunar
+     tumbler
+     xfce4-notifyd
   ];
 
   environment.sessionVariables = {

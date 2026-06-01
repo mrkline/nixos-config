@@ -154,7 +154,6 @@ in rec
      mosh
      msmtp
      mutt
-     neovim
      nmap
      optipng
      par
