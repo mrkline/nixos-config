@@ -45,6 +45,7 @@
       luks.devices."cryptoroot" = {
         device = "/dev/disk/by-uuid/90847ad2-7a40-46ca-a1a5-9d9fbd5a8fc7";
         allowDiscards = true;
+        crypttabExtraOpts = [ "tries=0" ];
       };
     };
     kernelModules = [ "kvm-intel" ];
