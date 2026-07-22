@@ -6,6 +6,7 @@ filetype plugin off
 filetype indent on
 
 lua require('hls')
+lua require('treesitter')
 noremap K :lua vim.lsp.buf.hover()<CR>
 noremap <leader>a :lua vim.lsp.buf.code_action()<CR>
 noremap <leader>D :lua vim.lsp.buf.declaration()<CR>
@@ -95,7 +96,7 @@ set completeopt=menu,menuone,longest
 " Continue comment headers when enter is pressed
 set formatoptions+=or
 
-" Code folding based on syntax
+" Fallback for Tree-sitter (see treesitter.lua) expr-based folding
 set foldmethod=syntax
 set foldlevelstart=99
 
@@ -108,7 +109,8 @@ set backspace=2
 " .tex files are LaTeX by default
 let g:tex_flavor = "latex"
 
-" File type detection and syntax highlighting
+" If Tree-sitter (see treesitter.lua) doesn't have a parser,
+" fall back to ye olde regexes.
 syntax on
 
 " No fancy indentation
