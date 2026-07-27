@@ -32,11 +32,9 @@
      spotify
      zathura
      zoom-us
-     unstable.google-chrome
      unstable.firefox
      unstable.discord
      unstable.signal-desktop
-     unstable.slack
 
      # desktop environment
      adwaita-icon-theme
