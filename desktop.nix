@@ -39,7 +39,9 @@
      # desktop environment
      adwaita-icon-theme
      alacritty
+     batsignal
      brightnessctl
+     cliphist
      grim
      networkmanagerapplet
      pango
@@ -47,12 +49,12 @@
      rofi
      slurp
      swaylock
+     swaynotificationcenter
      waybar
      wl-clipboard
      ristretto
      thunar
      tumbler
-     xfce4-notifyd
   ];
 
   environment.sessionVariables = {

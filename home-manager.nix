@@ -197,6 +197,8 @@ in {
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/nvim/lua/treesitter.lua".source = ./dotfiles/treesitter.lua;
         ".config/waybar/config".source = ./sway/waybar-config;
+        ".config/swaync/config.json".source = ./sway/swaync-config.json;
+        ".config/swaync/style.css".source = ./sway/swaync-style.css;
         ".iftoprc".text = ''
             line-display: one-line-both
             show-bars: no

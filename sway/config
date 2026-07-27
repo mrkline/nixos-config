@@ -17,6 +17,13 @@ bindsym $mod+Ctrl+q kill
 # Use rofi as a launcher
 bindsym $mod+d exec rofi -show run -font 'Jost* 12' -lines 5
 
+# Clipboard history via rofi
+bindsym $mod+x exec cliphist -db-path "$XDG_RUNTIME_DIR/cliphist-db" list | rofi -dmenu -p Clipboard -font 'Jost* 12' | cliphist -db-path "$XDG_RUNTIME_DIR/cliphist-db" decode | wl-copy
+
+# Notification center: toggle panel / toggle do-not-disturb
+bindsym $mod+n exec swaync-client -t -sw
+bindsym $mod+Shift+n exec swaync-client -d -sw
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -124,6 +131,19 @@ exec dbus-update-activation-environment --systemd --all
 
 # Tray applets
 exec nm-applet --indicator
+
+# Notification daemon + center (replaces xfce4-notifyd)
+exec swaync
+
+# Clipboard manager: record clipboard history (text and images).
+# DB lives in tmpfs ($XDG_RUNTIME_DIR), so it's wiped at logout/reboot
+# and never written to persistent disk.
+exec wl-paste --watch cliphist -db-path "$XDG_RUNTIME_DIR/cliphist-db" store
+exec wl-paste --type image --watch cliphist -db-path "$XDG_RUNTIME_DIR/cliphist-db" store
+
+# Low-battery warnings via notifications (default battery BAT0).
+# -i ignores "no battery" so this is harmless on the desktop.
+exec batsignal -w 20 -c 10 -i
 
 # Screenshots
 bindsym Print exec grim - | wl-copy -t image/png

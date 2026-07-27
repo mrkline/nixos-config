@@ -1,0 +1,113 @@
+/* swaync — styled to match the waybar look: black bg, white text, Jost. */
+
+* {
+  font-family: "Jost*", sans-serif;
+  font-size: 13pt;
+}
+
+.notification-row {
+  outline: none;
+}
+
+.notification {
+  margin: 6px 8px 0 8px;
+  padding: 0;
+}
+
+.notification-content {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #333333;
+}
+
+.notification.critical .notification-content {
+  border-color: #ff5555;
+}
+
+.notification-default-action {
+  border-radius: 8px;
+}
+
+.notification-default-action:hover {
+  background-color: #1a1a1a;
+}
+
+.close-button {
+  background: transparent;
+  color: #ffffff;
+  margin: 4px;
+  padding: 0 6px;
+  border-radius: 6px;
+}
+
+.close-button:hover {
+  background-color: #333333;
+}
+
+.summary {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.body {
+  color: #cccccc;
+}
+
+/* Control center panel */
+
+.control-center {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.control-center .notification-content {
+  background-color: #111111;
+}
+
+.widget-title {
+  color: #ffffff;
+  font-weight: 500;
+  margin: 4px 8px;
+}
+
+.widget-title > button {
+  background-color: #111111;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+
+.widget-title > button:hover {
+  background-color: #333333;
+}
+
+/* Do-not-disturb toggle */
+
+.widget-dnd {
+  color: #ffffff;
+  margin: 4px 8px;
+}
+
+.widget-dnd > switch {
+  background-color: #333333;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+  background-color: #ffffff;
+}
+
+.widget-dnd > switch slider {
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked slider {
+  background-color: #000000;
+}

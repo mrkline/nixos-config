@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["cpu", "memory", "battery", "clock#utc", "clock", "tray"],
+    "modules-right": ["cpu", "memory", "battery", "clock#utc", "clock", "custom/notification", "tray"],
     "cpu": {
         "format": "CPU: {usage}%",
         "interval": 5
@@ -24,5 +24,24 @@
     },
     "tray": {
         "spacing": 10
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "🔔",
+            "none": "🔔",
+            "dnd-notification": "🔕",
+            "dnd-none": "🔕",
+            "inhibited-notification": "🔔",
+            "inhibited-none": "🔔",
+            "dnd-inhibited-notification": "🔕",
+            "dnd-inhibited-none": "🔕"
+        },
+        "return-type": "json",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }
