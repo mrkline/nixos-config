@@ -1,5 +1,22 @@
 { workBox, machineFiles }:
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+    # tree-sitter's vendored array.h grows an array by reassigning
+    # `self->contents` through a generic `Array *`, so GCC is free to hoist
+    # array_push's typed read-back above the realloc and write past the freed
+    # buffer. nixpkgs builds every grammar at -O2 with strict aliasing on; the
+    # haskell scanner corrupts the heap buffering a long block comment into
+    # `lookahead`. Only grammars carrying the newer array.h are affected today
+    # (haskell; c_sharp's older copy returns the pointer instead of punning),
+    # but that's the form upstream ships now, so blanket it.
+    # cf. patches/tree-sitter-haskell-fno-strict-aliasing.patch, which fixes
+    # this for cargo consumers; buildGrammar compiles the C by hand and never
+    # reads bindings/rust/build.rs.
+    noStrictAliasing = g: g.overrideAttrs (o: {
+        CFLAGS = o.CFLAGS ++ [ "-fno-strict-aliasing" ];
+        CXXFLAGS = o.CXXFLAGS ++ [ "-fno-strict-aliasing" ];
+    });
+in {
     programs = {
         zsh = {
             enable = true;
@@ -118,7 +135,7 @@
                 nvim-fzf-commands
                 # markdown_inline handles inline markup (bold/links/code spans);
                 # markdown alone only covers block structure.
-                (nvim-treesitter.withPlugins (p: [
+                (nvim-treesitter.withPlugins (p: map noStrictAliasing [
                     p.c
                     p.c_sharp
                     p.cpp
