@@ -116,7 +116,21 @@
                 vim-fugitive
                 nvim-fzf
                 nvim-fzf-commands
-                nvim-treesitter.withAllGrammars
+                # markdown_inline handles inline markup (bold/links/code spans);
+                # markdown alone only covers block structure.
+                (nvim-treesitter.withPlugins (p: [
+                    p.c
+                    p.c_sharp
+                    p.cpp
+                    p.haskell
+                    p.lua
+                    p.markdown
+                    p.markdown_inline
+                    p.nix
+                    p.rust
+                    p.toml
+                    p.typst
+                ]))
                 ];
             extraConfig = builtins.readFile ./dotfiles/init.vim;
             withRuby = false;
