@@ -123,6 +123,7 @@
                     p.c_sharp
                     p.cpp
                     p.haskell
+                    p.json
                     p.lua
                     p.markdown
                     p.markdown_inline
