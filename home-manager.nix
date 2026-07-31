@@ -196,6 +196,34 @@ in {
         '';
         ".config/nvim/lua/hls.lua".source = ./dotfiles/hls.lua;
         ".config/nvim/lua/treesitter.lua".source = ./dotfiles/treesitter.lua;
+        # nvim-treesitter.withPlugins builds a grammar pack whose queries/ are
+        # each grammar repo's *own* queries, not nvim-treesitter's. Those are
+        # written for its master branch, which registers predicates and
+        # directives (#is-not?, #set-lang-from-info-string!) that neither
+        # Neovim core nor nvim-treesitter's main branch (in nixpkgs)
+        # provides, so highlighting dies with "No handler for ..." on e.g. a
+        # Typst raw block tagged with a language, or `builtins` in a .nix file.
+        # ~/.config/nvim comes first in 'runtimepath' and queries resolve
+        # per-file, so this shadows the mismatched ones and leaves the rest
+        # (plus the folds/ and indents/ queries the grammar repos don't ship).
+        #
+        # nixpkgs already packages the right queries and hands them to us; it
+        # just loses a precedence contest. withPlugins sets
+        #     passthru.dependencies = grammarPlugins ++ queryPlugins;
+        # (pkgs/applications/editors/vim/plugins/nvim-treesitter/overrides.nix),
+        # then vim-utils.nix lumps grammars and queries into one symlinkJoin
+        # ("nvim-treesitter-grammars"). symlinkJoin is lndir, i.e.
+        # first-writer-wins, so the grammar half shadows every curated query
+        # for a language whose repo ships its own: the merged pack references
+        # *no* nvim-treesitter-queries-* output at all. Reversing that ++ (or
+        # keeping the query plugins as their own pack entry) would fix it for
+        # everyone and make this line unnecessary. Overriding
+        # passthru.dependencies to put queries first works locally too, but
+        # nothing errors if nixpkgs reshuffles that plumbing -- precedence just
+        # silently flips back -- so shadow via runtimepath instead, which is
+        # the mechanism nvim-treesitter's own README documents.
+        ".config/nvim/queries".source =
+            "${pkgs.vimPlugins.nvim-treesitter}/runtime/queries";
         ".config/waybar/config".source = ./sway/waybar-config;
         ".config/swaync/config.json".source = ./sway/swaync-config.json;
         ".config/swaync/style.css".source = ./sway/swaync-style.css;
