@@ -136,6 +136,7 @@ in {
                 # markdown_inline handles inline markup (bold/links/code spans);
                 # markdown alone only covers block structure.
                 (nvim-treesitter.withPlugins (p: map noStrictAliasing [
+                    p.bash
                     p.c
                     p.c_sharp
                     p.cpp
@@ -145,9 +146,14 @@ in {
                     p.markdown
                     p.markdown_inline
                     p.nix
+                    p.python
+                    p.rst
+                    p.ruby
                     p.rust
                     p.toml
                     p.typst
+                    p.vim
+                    p.zsh
                 ]))
                 ];
             extraConfig = builtins.readFile ./dotfiles/init.vim;
