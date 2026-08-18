@@ -98,6 +98,8 @@ in {
                 };
                 core = {
                     autocrlf = false;
+                } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
+                    # All the Linux boxen BTRFS with transparent zstd
                     compression = 0;
                 };
                 color = {
