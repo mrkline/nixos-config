@@ -1,5 +1,5 @@
 { workBox, machineFiles }:
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 let
     # tree-sitter's vendored array.h grows an array by reassigning
     # `self->contents` through a generic `Array *`, so GCC is free to hoist
@@ -98,8 +98,8 @@ in {
                 };
                 core = {
                     autocrlf = false;
-                } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
-                    # All the Linux boxen BTRFS with transparent zstd
+                } // pkgs.lib.optionalAttrs ((osConfig.fileSystems."/".fsType or "") == "btrfs") {
+                    # Root is BTRFS with transparent zstd; don't double-compress
                     compression = 0;
                 };
                 color = {
