@@ -16,7 +16,6 @@ let cs = {
       "Bash(git commit *)"
       "Bash(git pull *)"
       "Bash(git push *)"
-      "Bash(git remote *)"
       "Read(~/.ssh)"
       "Read(~/.zsh_history)"
     ];
@@ -72,6 +71,11 @@ in
         Programs and libraries are unlikely to be in standard Linux FHS locations,
         so if you want to run a particular command and it's not in `$PATH`,
         get it through `nix-shell`.
+
+        Some repositories use jujutsu - use that instead of git when in such a repo.
+
+        Never commit anything or take other actions to modify git or jj history on my behalf.
+        Leave changes for me to review.
     '';
     mode = "0444";
   };
