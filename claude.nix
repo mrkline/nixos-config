@@ -76,6 +76,9 @@ in
 
         Never commit anything or take other actions to modify git or jj history on my behalf.
         Leave changes for me to review.
+
+        Do not draw conclusions based on branches besides the currently-checked out one,
+        since they might be from other sessions whose results I want to compare to our current one.
     '';
     mode = "0444";
   };
