@@ -16,7 +16,7 @@
     };
 
     rust-overlay = {
-      url = "github:oxalica/rust-overlay/fe2124391e739e7b3e8720cd8a73f06edd0aceba";
+      url = "github:oxalica/rust-overlay/ab777f900c3de943e117eb4814ddff6f645b28ad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
