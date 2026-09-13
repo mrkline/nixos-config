@@ -67,6 +67,20 @@ in
   };
   environment.etc."claude-code/CLAUDE.md" = {
     text = ''
+        In conversation, notes, and code comments, use Simplified Technical English as defined by
+        [ASD-STE100](https://www.asd-ste100.org/).
+        - One topic per sentence; split sentences needing colons, semicolons, or dashes.
+        - Limit sentences to 20 words and paragraphs to 6 sentences.
+        - Use active voice, naming the actor.
+        - Use simple present tense, unless time is part of the meaning.
+        - Use one name for each thing, and use that name every time.
+        - Use literal words only; avoid metaphors, idioms, or figures of speech.
+        - Use common words, preferring the shortest accurate English word.
+        - Keep small words like 'the', 'a', 'that', and 'is' in full, writing short sentences, not compressed ones.
+
+        Only insert code comments if they provide additional context or justification.
+        Do not insert comments that only explain what code does when it can be clearly inferred by the code itself.
+
         You are running on a NixOS system.
         Programs and libraries are unlikely to be in standard Linux FHS locations,
         so if you want to run a particular command and it's not in `$PATH`,
