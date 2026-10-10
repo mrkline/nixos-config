@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, unstable, ... }:
-let isWsl = config.wsl.enable or false;
+let
+  isWsl = config.wsl.enable or false;
+  hs = unstable.haskell.packages.ghc9124;
 in rec
 {
   imports =
@@ -99,11 +101,12 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
+     hs.cabal-install
+     hs.ghc
+     hs.haskell-language-server
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
-     unstable.cabal-install
-     unstable.ghc
      unstable.hlint
      unstable.jujutsu
      unstable.haskellPackages.cbor-tool
@@ -111,7 +114,6 @@ in rec
      unstable.haskellPackages.ghc-events
      unstable.haskellPackages.ghc-prof-flamegraph
      unstable.haskellPackages.hp2pretty
-     unstable.haskell-language-server
 
      # other CLIs, utils
      acpi
