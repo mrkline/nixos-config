@@ -103,10 +103,10 @@ in rec
      gdb
      hs.cabal-install
      hs.ghc
-     hs.haskell-language-server
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
+     unstable.haskell-language-server
      unstable.hlint
      unstable.jujutsu
      unstable.haskellPackages.cbor-tool
