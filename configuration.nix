@@ -6,6 +6,17 @@
 let
   isWsl = config.wsl.enable or false;
   hs = unstable.haskell.packages.ghc9124;
+  nom = unstable.nix-output-monitor.overrideAttrs {
+    version = "2.2.0-detnix-fix-2026-10-19";
+    src = unstable.fetchFromGitHub {
+      owner = "maralorn";
+      repo = "nix-output-monitor";
+      rev = "d48ff7935da72a5a5764ee8c5358d38417b0f337";
+      hash = "sha256-GOP4WQiZMTEMvwM2kH4YEE6sU7oEgPo9+Ys+kerIhes=";
+    };
+    # nixpkgs patches v2.2.0 with this commit, which is already in src.
+    patches = [ ];
+  };
 in rec
 {
   imports =
@@ -82,8 +93,8 @@ in rec
      # Nix fun
      cachix
      nix-index
-     nix-output-monitor
      nix-tree
+     nom
 
      # disk stuff
      parted
