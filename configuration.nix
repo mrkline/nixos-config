@@ -101,11 +101,11 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
-     hs.cabal-install
      hs.ghc
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
+     unstable.cabal-install
      unstable.haskell-language-server
      unstable.hlint
      unstable.jujutsu
