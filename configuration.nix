@@ -113,11 +113,11 @@ in rec
      clang
      gdb
      hs.ghc
+     hs.haskell-language-server
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
      unstable.cabal-install
-     unstable.haskell-language-server
      unstable.hlint
      unstable.jujutsu
      unstable.haskellPackages.cbor-tool
