@@ -5,7 +5,7 @@
 { config, pkgs, lib, unstable, ... }:
 let
   isWsl = config.wsl.enable or false;
-  hs = unstable.haskell.packages.ghc9124;
+  hs = unstable.haskell.packages.ghc912;
   nom = unstable.nix-output-monitor.overrideAttrs {
     version = "2.2.0-detnix-fix-2026-10-19";
     src = unstable.fetchFromGitHub {
@@ -112,19 +112,19 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
+     hs.cbor-tool
+     hs.eventlog2html
      hs.ghc
+     hs.ghc-events
+     hs.ghc-prof-flamegraph
      hs.haskell-language-server
+     hs.hlint
+     hs.hp2pretty
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
      unstable.cabal-install
-     unstable.hlint
      unstable.jujutsu
-     unstable.haskellPackages.cbor-tool
-     unstable.haskellPackages.eventlog2html
-     unstable.haskellPackages.ghc-events
-     unstable.haskellPackages.ghc-prof-flamegraph
-     unstable.haskellPackages.hp2pretty
 
      # other CLIs, utils
      acpi
