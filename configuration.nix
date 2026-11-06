@@ -5,7 +5,7 @@
 { config, pkgs, lib, unstable, ... }:
 let
   isWsl = config.wsl.enable or false;
-  hs = unstable.haskell.packages.ghc912;
+  hs = unstable.haskell.packages.ghc9124;
   nom = unstable.nix-output-monitor.overrideAttrs {
     version = "2.2.0-detnix-fix-2026-10-19";
     src = unstable.fetchFromGitHub {
@@ -112,19 +112,22 @@ in rec
      # compilers, language-specific tooling
      clang
      gdb
-     hs.cbor-tool
-     hs.eventlog2html
      hs.ghc
-     hs.ghc-events
-     hs.ghc-prof-flamegraph
-     hs.haskell-language-server
-     hs.hlint
-     hs.hp2pretty
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
      unstable.cabal-install
      unstable.jujutsu
+     # GHC 9.12.4 builds aren't in hydra; using latest cached is probably fine.
+     unstable.haskellPackages.cbor-tool
+     unstable.haskellPackages.eventlog2html
+     unstable.haskellPackages.ghc-events
+     unstable.haskellPackages.ghc-prof-flamegraph
+     # GHC 9.12.4 panics when it compiles the profiling objects of ghcide.
+     # GHC 9.12.5 has the fix: https://gitlab.haskell.org/ghc/ghc/-/issues/27121
+     unstable.haskellPackages.haskell-language-server
+     unstable.haskellPackages.hlint
+     unstable.haskellPackages.hp2pretty
 
      # other CLIs, utils
      acpi
