@@ -113,6 +113,7 @@ in rec
      clang
      gdb
      hs.ghc
+     (python3.withPackages (ps: with ps; [ matplotlib numpy scipy ]))
      rust-bin.stable.latest.default
      rust-analyzer
      sqlite
