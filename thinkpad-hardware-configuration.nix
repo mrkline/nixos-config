@@ -74,7 +74,15 @@
       enable = true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        # With intel_pstate, "performance" keeps active cores at the max P-state
+        # and forces EPP to "performance", so light loads also make heat.
+        # "powersave" still boosts to full turbo under load.
+        CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+        # The firmware sets lower power limits in "balanced".
+        # This can give fewer firmware power cuts under sustained load.
+        # Compare build times with "performance" before you enable it.
+        # PLATFORM_PROFILE_ON_AC = "balanced";
         USB_AUTOSUSPEND = "0";
       };
     };
